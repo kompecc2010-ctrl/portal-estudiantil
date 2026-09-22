@@ -30,27 +30,65 @@
     <main class="contenedor">
         
                 <!-- SECCIÓN: NOTICIAS SEMANALES subir archivos con los mismos nombres en formato pdf -->
+                <!-- SECCIÓN: NOTICIAS SEMANALES EN CARRUSEL -->
         <section id="noticias" class="seccion">
             <h2 class="titulo-seccion">📰 Noticias Semanales</h2>
             
-            <div class="bloque-noticia urgente">
-                <div class="noticia-cabecera">
-                    <h3>⚠️ ¡IMPORTANTE! Cambio en Fechas de Exámenes</h3>
-                    <span class="etiqueta-noticia urgente">Urgente</span>
-                </div>
-                <p class="fecha-noticia">Publicado: Hace 1 hora</p>
-                <p>Se han modificado oficialmente los horarios de las evaluaciones del segundo trimestre. Por favor, descarguen el nuevo cronograma en PDF en la sección de recursos de abajo para evitar confusiones.</p>
-            </div>
+            <!-- Contenedor principal del carrusel -->
+            <div class="contenedor-carrusel">
+                <div class="carrusel-deslizable" id="carruselNoticias">
+                    
+                    <!-- Noticia 1 -->
+                    <div class="tarjeta-noticia-carrusel urgente">
+                        <div class="noticia-cabecera">
+                            <h3>⚠️ ¡IMPORTANTE! Cambio en Fechas de Exámenes</h3>
+                            <span class="etiqueta-noticia urgente">Urgente</span>
+                        </div>
+                        <p class="fecha-noticia">Publicado: Hace 1 hora</p>
+                        <p>Se han modificado oficialmente los horarios de las evaluaciones del segundo trimestre. Por favor, descarguen el nuevo cronograma en PDF en la sección de recursos.</p>
+                    </div>
 
-            <div class="bloque-noticia">
-                <div class="noticia-cabecera">
-                    <h3>🚀 Abiertas las Inscripciones para el Club de Programación</h3>
-                    <span class="etiqueta-noticia nuevo">Nuevo</span>
+                    <!-- Noticia 2 -->
+                    <div class="tarjeta-noticia-carrusel">
+                        <div class="noticia-cabecera">
+                            <h3>🚀 Abiertas las Inscripciones para el Club de Programación</h3>
+                            <span class="etiqueta-noticia nuevo">Nuevo</span>
+                        </div>
+                        <p class="fecha-noticia">Publicado: Ayer</p>
+                        <p>Ya puedes registrarte en el taller práctico de Git Hub, HTML5 y CSS3 avanzados. Las clases serán en el laboratorio de informática.</p>
+                    </div>
+
+                    <!-- Noticia 3 -->
+                    <div class="tarjeta-noticia-carrusel">
+                        <div class="noticia-cabecera">
+                            <h3>📚 Entrega de Textos Guía de Estudio</h3>
+                            <span class="etiqueta-noticia nuevo">Nuevo</span>
+                        </div>
+                        <p class="fecha-noticia">Publicado: Hace 2 días</p>
+                        <p>Los libros de apoyo para el área de ciencias y programación están listos para retiro en la biblioteca general en horarios matutinos.</p>
+                    </div>
+
                 </div>
-                <p class="fecha-noticia">Publicado: Ayer</p>
-                <p>Ya puedes registrarte en el taller práctico de Git Hub, HTML5 y CSS3 avanzados. Las clases serán en el laboratorio de informática y los cupos son limitados.</p>
             </div>
         </section>
+
+        <!-- SCRIPT DE JAVASCRIPT PARA EL MOVIMIENTO AUTOMÁTICO -->
+        <script>
+            const carrusel = document.getElementById('carruselNoticias');
+            let indiceActual = 0;
+
+            function moverCarrusel() {
+                const totalNoticias = carrusel.children.length;
+                indiceActual = (indiceActual + 1) % totalNoticias;
+                
+                // Desplaza horizontalmente el contenedor basado en la noticia actual
+                carrusel.style.transform = `translateX(-${indiceActual * 100}%)`;
+            }
+
+            // Ejecuta la función cada 3000 milisegundos (3 segundos)
+            setInterval(moverCarrusel, 3000);
+        </script>
+
 
         <!-- SECCIÓN: DOCUMENTOS ESTUDIANTILES (PDF) -->
         <section id="recursos" class="seccion">
