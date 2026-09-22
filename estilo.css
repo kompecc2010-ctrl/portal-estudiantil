@@ -482,3 +482,29 @@ footer {
     color: #4a5568;
     line-height: 1.5;
 }
+/* --- ESTILOS DEL CARRUSEL AUTOMÁTICO --- */
+.contenedor-carrusel {
+    width: 100%;
+    overflow: hidden; /* Esconde las noticias que están en fila esperando su turno */
+    background-color: #f7fafc;
+    border-radius: 8px;
+    box-shadow: inset 0 2px 4px rgba(0,0,0,0.02);
+}
+
+.carrusel-deslizable {
+    display: flex;
+    width: 100%;
+    transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1); /* Hace que el deslizamiento sea súper suave */
+}
+
+.tarjeta-noticia-carrusel {
+    min-width: 100%; /* Cada noticia ocupa exactamente el 100% del ancho disponible */
+    box-sizing: border-box;
+    padding: 1.5rem 2rem;
+    border-left: 4px solid #2b6cb0;
+}
+
+.tarjeta-noticia-carrusel.urgente {
+    border-left-color: #e53e3e;
+    background-color: #fff5f5;
+}
