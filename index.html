@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portal Estudiantil - Inicio</title>
+    <link rel="stylesheet" href="estilo.css">
+</head>
+<body>
+
+    <!-- Barra de Navegación (Conecta ambas páginas) -->
+    <nav class="barra-navegacion">
+        <div class="logo">EduEspacio</div>
+        <ul class="enlaces">
+            <li><a href="index.html#inicio">Inicio</a></li>
+            <li><a href="index.html#noticias">Noticias</a></li>
+			<li><a href="index.html#galeria">Galería</a></li>
+            <li><a href="index.html#recursos">Recursos</a></li>
+            <!-- Enlace directo a la segunda página -->
+            <li><a href="contacto.html" class="menu-destacado">Contacto</a></li>
+        </ul>
+    </nav>
+
+    <!-- Cabecera Principal -->
+    <header id="inicio">
+        <h1>Portal de Recursos Estudiantiles</h1>
+        <p>Tu espacio académico con noticias, guías y material de apoyo semanal</p>
+    </header>
+
+    <main class="contenedor">
+        
+                <!-- SECCIÓN: NOTICIAS SEMANALES subir archivos con los mismos nombres en formato pdf -->
+        <section id="noticias" class="seccion">
+            <h2 class="titulo-seccion">📰 Noticias Semanales</h2>
+            
+            <div class="bloque-noticia urgente">
+                <div class="noticia-cabecera">
+                    <h3>⚠️ ¡IMPORTANTE! Cambio en Fechas de Exámenes</h3>
+                    <span class="etiqueta-noticia urgente">Urgente</span>
+                </div>
+                <p class="fecha-noticia">Publicado: Hace 1 hora</p>
+                <p>Se han modificado oficialmente los horarios de las evaluaciones del segundo trimestre. Por favor, descarguen el nuevo cronograma en PDF en la sección de recursos de abajo para evitar confusiones.</p>
+            </div>
+
+            <div class="bloque-noticia">
+                <div class="noticia-cabecera">
+                    <h3>🚀 Abiertas las Inscripciones para el Club de Programación</h3>
+                    <span class="etiqueta-noticia nuevo">Nuevo</span>
+                </div>
+                <p class="fecha-noticia">Publicado: Ayer</p>
+                <p>Ya puedes registrarte en el taller práctico de Git Hub, HTML5 y CSS3 avanzados. Las clases serán en el laboratorio de informática y los cupos son limitados.</p>
+            </div>
+        </section>
+
+        <!-- SECCIÓN: DOCUMENTOS ESTUDIANTILES (PDF) -->
+        <section id="recursos" class="seccion">
+            <h2 class="titulo-seccion">📚 Material de Estudio y Recursos PDF</h2>
+            <p>Haz clic en los botones para abrir los documentos en una nueva pestaña o guardarlos en tu dispositivo:</p>
+            
+            <ul class="lista-documentos">
+                <li>
+                    <span class="icono-doc">📕</span>
+                    <div class="info-doc">
+                        <strong>Cronograma_Examenes_2do_Trimestre.pdf</strong>
+                        <span>Formato: PDF Seguro | Actualizado esta semana</span>
+                    </div>
+                    <div class="botones-doc">
+                        <!-- target="_blank" hace que el PDF se abra en otra pestaña sin cerrar tu web -->
+                        <a href="documentos/Cronograma_Examenes_2do_Trimestre.pdf" target="_blank" class="boton-accion ver">Ver Online</a>
+                        <a href="documentos/Cronograma_Examenes_2do_Trimestre.pdf" download class="boton-accion descargar">Descargar</a>
+                    </div>
+                </li>
+                <li>
+                    <span class="icono-doc">📕</span>
+                    <div class="info-doc">
+                        <strong>Guia_Basica_GitHub_Estudiantes.pdf</strong>
+                        <span>Formato: PDF Educativo | Material de apoyo</span>
+                    </div>
+                    <div class="botones-doc">
+                        <a href="documentos/Estudiantes.pdf" target="_blank" class="boton-accion ver">Ver Online</a>
+                        <a href="documentos/Estudiantes.pdf" download class="boton-accion descargar">Descargar</a>
+                    </div>
+                </li>
+            </ul>
+        </section>
+
+
+                <!-- SECCIÓN: GALERÍA FOTOGRÁFICA INTERACTIVA -->
+        <section id="galeria" class="seccion">
+            <h2 class="titulo-seccion">📸 Galería de Actividades</h2>
+            <p>Un registro visual de nuestros proyectos estudiantiles:</p>
+            
+            <div class="cuadricula-galeria">
+                <!-- Foto 1 -->
+                <div class="tarjeta-foto">
+                    <div class="contenedor-imagen">
+                        <img src="imagenes/fotoclase.jpeg" alt="Estudios">
+                    </div>
+                    <div class="info-foto">
+                        <h4>Clases de Desarrollo Web</h4>
+                        <p>Estudiantes practicando la maquetación en código HTML y CSS.</p>
+                    </div>
+                </div>
+
+                <!-- Foto 2 -->
+                <div class="tarjeta-foto">
+                    <div class="contenedor-imagen">
+                        <img src="imagenes/fotogrupo.jpg" alt="Grupo">
+                    </div>
+                    <div class="info-foto">
+                        <h4>Proyectos Grupales</h4>
+                        <p>Diseño y planeación de la estructura del portal académico.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+		<!-- SECCIÓN: VIDEO TUTORIAL -->
+        <section class="seccion">
+            <h2 class="titulo-seccion">📺 Video Tutorial Destacado</h2>
+            <div class="contenedor-video">
+<iframe src="https://youtube.com/embed/FDJZiBfPdXE" title="El Reino Animal" frameborder="0" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            </div>
+            <p class="pie-foto">Introducción práctica a cómo organizar tus apuntes digitales del Reino Animal.</p>
+        </section>
+		
+            </div>
+        </section>
+
+       
+
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Derechos reservados Jambeli.</p>
+    </footer>
+
+</body>
+</html>
