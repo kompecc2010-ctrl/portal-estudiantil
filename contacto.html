@@ -33,10 +33,12 @@
             <h2>Formulario de Consulta Estudiantiles</h2>
             <p>Completa tus datos académicos para procesar tu mensaje:</p>
             
-            <!-- REEMPLAZA EL TEXTO EN MAYÚSCULAS DE ABAJO POR LA URL LARGA QUE TE DIO GOOGLE -->
-            <!-- 1. El formulario ahora lleva un ID único y ya NO lleva la URL en el 'action' -->
-<!-- 1. El formulario queda limpio sin URL en el action y con un ID único -->
-<form id="formularioContacto" class="formulario">
+<!-- 1. Formulario con tu enlace real de Google y apuntando al target oculto -->
+<form action="https://script.google.com/macros/s/AKfycbyJHqAyd_KPqx96G7i5ukQQT3UUYGJnxly0bFm4OE8rXO6hUEyRwA5D2eKU59tJAaIm/exec" 
+      method="POST" 
+      target="targetOculto" 
+      id="formularioContacto" 
+      class="formulario">
 
     <div class="grupo-campo">
         <label for="nombre">Nombre completo</label>
@@ -56,35 +58,25 @@
     <button type="submit" class="boton-enviar" id="btnEnviar">Enviar Mensaje</button>
 </form>
 
-<!-- 2. SCRIPT DE CONTROL TOTAL: Envía los datos y solo redirige al tener éxito -->
+<!-- 2. Contenedor invisible que procesa el "Éxito" de Google en segundo plano -->
+<iframe name="targetOculto" id="targetOculto" style="display:none;"></iframe>
+
+<!-- 3. Script definitivo con tiempo de espera seguro para el envío -->
 <script>
-    document.getElementById('formularioContacto').addEventListener('submit', function(e) {
-        e.preventDefault(); // Detiene el comportamiento clásico para evitar páginas en blanco
-        
+    var formulario = document.getElementById('formularioContacto');
+    
+    formulario.addEventListener('submit', function() {
         var boton = document.getElementById('btnEnviar');
         boton.innerText = 'Enviando mensaje...';
         boton.disabled = true;
 
-        // Tu URL exacta de Google Apps Script
-        var urlScript = "https://script.google.com/macros/s/AKfycbyJHqAyd_KPqx96G7i5ukQQT3UUYGJnxly0bFm4OE8rXO6hUEyRwA5D2eKU59tJAaIm/exec";
-
-        // Enviamos los datos de manera asíncrona
-        fetch(urlScript, {
-            method: 'POST',
-            mode: 'no-cors', // Permite la comunicación segura hacia Google
-            body: new FormData(this)
-        })
-        .then(function() {
-            // ¡ÉXITO! El mensaje salió de tu web. Redirigimos ahora mismo
+        // Damos 2 segundos completos para que los datos salgan hacia Google antes de cambiar de página
+        setTimeout(function() {
             window.location.href = "gracias.html";
-        })
-        .catch(function(error) {
-            alert('Hubo un error de conexión. Inténtalo de nuevo.');
-            boton.innerText = 'Enviar Mensaje';
-            boton.disabled = false;
-        });
+        }, 2000); 
     });
 </script>
+
 
 
 
