@@ -35,12 +35,8 @@
             
             <!-- REEMPLAZA EL TEXTO EN MAYÚSCULAS DE ABAJO POR LA URL LARGA QUE TE DIO GOOGLE -->
             <!-- 1. El formulario ahora lleva un ID único y ya NO lleva la URL en el 'action' -->
-<!-- 1. El formulario vuelve a apuntar directo a Google mediante el action tradicional, pero añade target="targetOculto" -->
-<form action="https://google.com" 
-      method="POST" 
-      target="targetOculto" 
-      id="formularioContacto" 
-      class="formulario">
+<!-- 1. El formulario queda limpio sin URL en el action y con un ID único -->
+<form id="formularioContacto" class="formulario">
 
     <div class="grupo-campo">
         <label for="nombre">Nombre completo</label>
@@ -60,24 +56,36 @@
     <button type="submit" class="boton-enviar" id="btnEnviar">Enviar Mensaje</button>
 </form>
 
-<!-- 2. ESTE ES EL TRUCO: Un contenedor invisible que se tragará la pantalla en blanco de Google -->
-<iframe name="targetOculto" id="targetOculto" style="display:none;"></iframe>
-
-<!-- 3. SCRIPT: Escucha cuando el formulario se envía y te redirige de inmediato a tu gracias.html -->
+<!-- 2. SCRIPT DE CONTROL TOTAL: Envía los datos y solo redirige al tener éxito -->
 <script>
-    var formulario = document.getElementById('formularioContacto');
-    
-    formulario.addEventListener('submit', function() {
+    document.getElementById('formularioContacto').addEventListener('submit', function(e) {
+        e.preventDefault(); // Detiene el comportamiento clásico para evitar páginas en blanco
+        
         var boton = document.getElementById('btnEnviar');
-        boton.innerText = 'Enviando...';
+        boton.innerText = 'Enviando mensaje...';
         boton.disabled = true;
 
-        // Espera medio segundo a que los datos salgan hacia Google y fuerza la redirección a gracias.html
-        setTimeout(function() {
+        // Tu URL exacta de Google Apps Script
+        var urlScript = "https://google.com";
+
+        // Enviamos los datos de manera asíncrona
+        fetch(urlScript, {
+            method: 'POST',
+            mode: 'no-cors', // Permite la comunicación segura hacia Google
+            body: new FormData(this)
+        })
+        .then(function() {
+            // ¡ÉXITO! El mensaje salió de tu web. Redirigimos ahora mismo
             window.location.href = "gracias.html";
-        }, 2500);
+        })
+        .catch(function(error) {
+            alert('Hubo un error de conexión. Inténtalo de nuevo.');
+            boton.innerText = 'Enviar Mensaje';
+            boton.disabled = false;
+        });
     });
 </script>
+
 
 
         </section>
