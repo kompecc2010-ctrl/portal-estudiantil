@@ -28,11 +28,13 @@
 
     <main class="contenedor">
         <!-- Formulario Independiente Estilizado -->
-        <section class="seccion-contacto">
-            <h2>Formulario de Consulta Estudatiles</h2>
+        <!-- Se cambió la clase a 'seccion' para que herede automáticamente el diseño esmerilado que creamos en estilo.css -->
+        <section class="seccion"> 
+            <h2>Formulario de Consulta Estudiantiles</h2>
             <p>Completa tus datos académicos para procesar tu mensaje:</p>
             
-<form method="POST" data-netlify="true" action="gracias.html" class="formulario">
+            <!-- REEMPLAZA EL TEXTO EN MAYÚSCULAS DE ABAJO POR LA URL LARGA QUE TE DIO GOOGLE -->
+            <form action="https://script.google.com/macros/s/AKfycbwKJ5HP64_WeHQKJE_GxzTELdolOPkS4RM7rkY4yJnm9FxMhEBZyO1ILlw-7_b6GrFf/exec" method="POST" class="formulario">
 
                 <div class="grupo-campo">
                     <label for="nombre">Nombre completo</label>
@@ -41,7 +43,8 @@
 
                 <div class="grupo-campo">
                     <label for="correo">Correo electrónico</label>
-                    <input type="email" id="correo" name="correo" placeholder="ejemplo@correo.com" required>
+                    <!-- Se cambió name="correo" por name="email" para que el script de Google lo lea correctamente -->
+                    <input type="email" id="correo" name="email" placeholder="ejemplo@correo.com" required>
                 </div>
 
                 <div class="grupo-campo">
