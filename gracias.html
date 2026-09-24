@@ -4,23 +4,39 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>¡Mensaje Enviado!</title>
+    <!-- Conectamos al archivo de diseño unificado -->
     <link rel="stylesheet" href="estilo.css">
 </head>
 <body>
 
+    <!-- Barra de Navegación Unificada -->
     <nav class="barra-navegacion">
         <div class="logo">EduEspacio</div>
+        <ul class="enlaces">
+            <li><a href="index.html#inicio">Inicio</a></li>
+            <li><a href="index.html#noticias">Noticias</a></li>
+			<li><a href="index.html#galeria">Galería</a></li>
+            <li><a href="index.html#recursos">Recursos</a></li>
+            <li><a href="contacto.html" class="menu-destacado">Contacto</a></li>
+        </ul>
     </nav>
 
-    <main class="contenedor" style="text-align: center; padding-top: 5rem;">
+    <!-- Contenedor Principal Centrado con Estilo Moderno -->
+    <main class="contenedor" style="max-width: 600px; margin: 4rem auto; text-align: center;">
         <section class="seccion">
-            <h2 style="color: #2b6cb0;">¡Muchas gracias! 🎉</h2>
-            <p>Tu mensaje académico ha sido recibido con éxito por nuestros servidores.</p>
-            <p>Te responderemos directamente a tu correo electrónico muy pronto.</p>
-            <br>
-            <a href="index.html" class="boton-descarga" style="text-decoration: none; display: inline-block;">Volver al Inicio</a>
+            <span style="font-size: 4rem; display: block; margin-bottom: 1rem;">🎉</span>
+            <h2 style="color: var(--azul-claro); font-size: 2rem; margin-bottom: 1rem;">¡Muchas gracias!</h2>
+            <p style="margin-bottom: 0.5rem;">Tu mensaje académico ha sido recibido con éxito por nuestros servidores.</p>
+            <p style="color: var(--gris-suave); font-size: 0.95rem; margin-bottom: 2rem;">Te responderemos directamente a tu correo electrónico muy pronto.</p>
+            
+            <!-- Botón estilizado usando las clases nativas de tu nuevo CSS -->
+            <a href="index.html" class="boton-accion descargar" style="display: inline-block; padding: 0.8rem 2rem;">Volver al Inicio</a>
         </section>
     </main>
+
+    <footer>
+        <p>&copy; 2026 Portal Estudiantil. Material de uso académico y educativo.</p>
+    </footer>
 
 </body>
 </html>
