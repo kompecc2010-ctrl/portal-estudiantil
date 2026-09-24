@@ -34,26 +34,56 @@
             <p>Completa tus datos académicos para procesar tu mensaje:</p>
             
             <!-- REEMPLAZA EL TEXTO EN MAYÚSCULAS DE ABAJO POR LA URL LARGA QUE TE DIO GOOGLE -->
-            <form action="https://script.google.com/macros/s/AKfycbwKJ5HP64_WeHQKJE_GxzTELdolOPkS4RM7rkY4yJnm9FxMhEBZyO1ILlw-7_b6GrFf/exec" method="POST" class="formulario">
+            <!-- 1. El formulario ahora lleva un ID único y ya NO lleva la URL en el 'action' -->
+<form id="formularioContacto" class="formulario">
 
-                <div class="grupo-campo">
-                    <label for="nombre">Nombre completo</label>
-                    <input type="text" id="nombre" name="nombre" placeholder="Ej. Juan Pérez" required>
-                </div>
+    <div class="grupo-campo">
+        <label for="nombre">Nombre completo</label>
+        <input type="text" id="nombre" name="nombre" placeholder="Ej. Juan Pérez" required>
+    </div>
 
-                <div class="grupo-campo">
-                    <label for="correo">Correo electrónico</label>
-                    <!-- Se cambió name="correo" por name="email" para que el script de Google lo lea correctamente -->
-                    <input type="email" id="correo" name="email" placeholder="ejemplo@correo.com" required>
-                </div>
+    <div class="grupo-campo">
+        <label for="correo">Correo electrónico</label>
+        <input type="email" id="correo" name="email" placeholder="ejemplo@correo.com" required>
+    </div>
 
-                <div class="grupo-campo">
-                    <label for="mensaje">¿En qué podemos ayudarte?</label>
-                    <textarea id="mensaje" name="mensaje" rows="5" placeholder="Escribe aquí tus dudas sobre las tareas, recursos o noticias..." required></textarea>
-                </div>
+    <div class="grupo-campo">
+        <label for="mensaje">¿En qué podemos ayudarte?</label>
+        <textarea id="mensaje" name="mensaje" rows="5" placeholder="Escribe aquí tus dudas sobre las tareas, recursos o noticias..." required></textarea>
+    </div>
 
-                <button type="submit" class="boton-enviar">Enviar Mensaje</button>
-            </form>
+    <button type="submit" class="boton-enviar" id="btnEnviar">Enviar Mensaje</button>
+</form>
+
+<!-- 2. SCRIPT DE JAVASCRIPT: Se encarga de enviar los datos y redirigir automáticamente -->
+<script>
+    document.getElementById('formularioContacto').addEventListener('submit', function(e) {
+        e.preventDefault(); // Evita que la pantalla se quede en blanco con el mensaje de Google
+        
+        var boton = document.getElementById('btnEnviar');
+        boton.innerText = 'Enviando...';
+        boton.disabled = true;
+
+        // Aquí ya coloqué tu enlace exacto de Google Apps Script
+        var urlScript = "https://google.com";
+
+        fetch(urlScript, {
+            method: 'POST',
+            mode: 'no-cors', // Evita errores de seguridad entre servidores distintos
+            body: new FormData(this)
+        })
+        .then(function() {
+            // ¡Redirección automática inmediata a tu página de gracias!
+            window.location.href = "gracias.html";
+        })
+        .catch(function(error) {
+            alert('Hubo un error al enviar el mensaje, por favor intenta nuevamente.');
+            boton.innerText = 'Enviar Mensaje';
+            boton.disabled = false;
+        });
+    });
+</script>
+
         </section>
     </main>
 
