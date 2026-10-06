@@ -1,243 +1,247 @@
-/* ==========================================================================
-   PALETA ACADÉMICA Y VARIABLES GLOBALES
-   ========================================================================== */
+/* ==========================================
+   ⚙️ CONFIGURACIÓN GENERAL Y VARIABLES
+   ========================================== */
 :root {
-    --azul-universitario: #1a365d;
-    --azul-claro: #2b6cb0;
-    --naranja-acento: #ed8936;
-    --naranja-hover: #dd6b20;
-    --gris-oscuro: #2d3748;
-    --gris-suave: #718096;
-    --gris-fondo-item: #f7fafc;
-    --gris-borde: #e2e8f0;
-    --blanco-cristal: rgba(255, 255, 255, 0.96);
-    --sombra-premium: 0 10px 30px rgba(26, 54, 93, 0.08);
-    --sombra-hover: 0 15px 25px rgba(26, 54, 93, 0.12);
+    --color-fondo: #f8fafc;        /* Gris ultra-claro moderno */
+    --color-tarjeta: #ffffff;      /* Blanco limpio */
+    --color-primario: #1e3a8a;     /* Azul Marino Académico */
+    --color-secundario: #3b82f6;   /* Azul Eléctrico */
+    --color-acento: #10b981;       /* Verde Esmeralda */
+    --color-texto: #334155;        /* Gris oscuro suave (mejor lectura que el negro puro) */
+    --color-texto-mutado: #64748b; /* Gris medio para subtítulos */
+    --color-urgente: #ef4444;      /* Rojo para alertas */
+    --color-borde: #e2e8f0;        /* Separador gris sutil */
+    --sombra-suave: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+    --sombra-tarjeta: 0 10px 15px -3px rgba(0, 0, 0, 0.05);
 }
 
-/* ==========================================================================
-   ESTILOS GENERALES
-   ========================================================================== */
 * {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
 }
 
-body {
-    font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
-    background: linear-gradient(135deg, #f5f7fa 0%, #e4e8f0 100%);
-    background-attachment: fixed; /* Mantiene el fondo estático al hacer scroll */
-    color: var(--gris-oscuro);
+html {
     scroll-behavior: smooth;
+}
+
+body {
+    background-color: var(--color-fondo);
+    color: var(--color-texto);
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
     line-height: 1.6;
+    padding-top: 70px; /* Evita que la barra fija tape la cabecera */
 }
 
 .contenedor {
-    max-width: 1050px;
+    max-width: 1000px;
     margin: 0 auto;
-    padding: 2rem 1rem 4rem 1rem;
+    padding: 0 20px;
 }
 
 .seccion {
-    background: var(--blanco-cristal);
-    backdrop-filter: blur(8px); /* Efecto moderno de cristal esmerilado */
-    -webkit-backdrop-filter: blur(8px);
-    padding: 2.5rem;
-    border-radius: 16px;
-    box-shadow: var(--sombra-premium);
-    margin-bottom: 2.5rem;
-    border: 1px solid rgba(255, 255, 255, 0.5);
+    margin-bottom: 60px;
 }
 
 .titulo-seccion {
-    color: var(--azul-universitario);
-    margin-top: 0;
-    font-size: 1.6rem;
-    border-bottom: 3px solid var(--gris-borde);
-    padding-bottom: 0.6rem;
-    margin-bottom: 1.5rem;
+    color: var(--color-primario);
+    font-size: 1.75rem;
+    font-weight: 700;
+    margin-bottom: 15px;
 }
 
-/* ==========================================================================
-   BARRA DE NAVEGACIÓN
-   ========================================================================== */
+.subtitulo-seccion {
+    color: var(--color-texto-mutado);
+    margin-bottom: 25px;
+    font-size: 1.05rem;
+}
+
+/* ==========================================
+   🧭 BARRA DE NAVEGACIÓN
+   ========================================== */
 .barra-navegacion {
-    background-color: var(--azul-universitario);
+    background-color: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(8px); /* Efecto difuminado moderno */
+    border-bottom: 1px solid var(--color-borde);
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    box-shadow: 0 1px 2px rgba(0,0,0,0.05);
+}
+
+.nav-contenedor {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 1rem 5%;
-    position: sticky;
-    top: 0;
-    z-index: 1000;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 15px 20px;
 }
 
-.barra-navegacion .logo {
-    color: #ffffff;
+.logo {
+    color: var(--color-primario);
     font-size: 1.4rem;
     font-weight: 700;
-    letter-spacing: 1px;
-}
-
-.barra-navegacion .enlaces {
-    list-style: none;
-    display: flex;
-    align-items: center;
-    gap: 1.8rem;
-}
-
-.barra-navegacion .enlaces a {
-    color: #e2e8f0;
-    text-decoration: none;
-    font-weight: 500;
-    font-size: 0.95rem;
-    transition: color 0.3s ease;
-}
-
-.barra-navegacion .enlaces a:hover {
-    color: var(--naranja-acento);
-}
-
-/* Botón Destacado de Contacto */
-.barra-navegacion .enlaces .menu-destacado {
-    background-color: var(--naranja-acento);
-    color: white;
-    padding: 0.5rem 1.2rem;
-    border-radius: 6px;
-    font-weight: 600;
-    transition: background-color 0.3s, transform 0.2s;
-}
-
-.barra-navegacion .enlaces .menu-destacado:hover {
-    background-color: var(--naranja-hover);
-    color: white;
-    transform: translateY(-1px);
-}
-
-/* ==========================================================================
-   CABECERA PRINCIPAL (HERO)
-   ========================================================================== */
-header {
-    background: linear-gradient(135deg, var(--azul-universitario) 0%, var(--azul-claro) 100%);
-    color: #ffffff;
-    text-align: center;
-    padding: 5rem 1rem;
-    box-shadow: inset 0 -10px 20px rgba(0,0,0,0.05);
-}
-
-header h1 {
-    font-size: 2.6rem;
-    font-weight: 800;
-    margin-bottom: 0.5rem;
     letter-spacing: -0.5px;
 }
 
-header p {
+.enlaces {
+    display: flex;
+    list-style: none;
+    align-items: center;
+    gap: 25px;
+}
+
+.enlaces a {
+    color: var(--color-texto-mutado);
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 0.95rem;
+    transition: color 0.2s ease;
+}
+
+.enlaces a:hover {
+    color: var(--color-primario);
+}
+
+.enlaces .menu-destacado {
+    background-color: var(--color-primario);
+    color: #ffffff;
+    padding: 8px 16px;
+    border-radius: 6px;
+    transition: background-color 0.2s ease;
+}
+
+.enlaces .menu-destacado:hover {
+    background-color: var(--color-secundario);
+    color: #ffffff;
+}
+
+/* ==========================================
+   👑 CABECERA (HERO)
+   ========================================== */
+.cabecera {
+    background: linear-gradient(135deg, var(--color-primario) 0%, #1d4ed8 100%);
+    color: #ffffff;
+    padding: 60px 20px;
+    text-align: center;
+    margin-bottom: 50px;
+    border-radius: 0 0 24px 24px;
+}
+
+.cabecera h1 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 12px;
+    letter-spacing: -0.5px;
+}
+
+.cabecera p {
     font-size: 1.15rem;
     opacity: 0.9;
+    font-weight: 300;
     max-width: 600px;
     margin: 0 auto;
 }
 
-/* ==========================================================================
-   SECCIÓN: NOTICIAS EN CARRUSEL (Estructura Deslizable)
-   ========================================================================== */
+/* ==========================================
+   📰 CARRUSEL DE NOTICIAS
+   ========================================== */
 .contenedor-carrusel {
-    position: relative;
-    width: 100%;
     overflow: hidden;
-    border-radius: 12px;
-    margin-top: 1.5rem;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.04);
+    border-radius: 16px;
+    box-shadow: var(--sombra-tarjeta);
+    background-color: var(--color-tarjeta);
+    border: 1px solid var(--color-borde);
 }
 
 .carrusel-deslizable {
     display: flex;
-    width: 100%;
-    transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+    transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .tarjeta-noticia-carrusel {
     min-width: 100%;
-    box-sizing: border-box;
-    padding: 25px;
-    background-color: #ffffff;
-    border-radius: 12px;
+    padding: 35px;
+    background-color: var(--color-tarjeta);
 }
 
+/* Variante visual sutil para noticias urgentes */
 .tarjeta-noticia-carrusel.urgente {
-    border-left: 5px solid #e53e3e;
-    background-color: #fff5f5;
+    background: linear-gradient(to right, #fff5f5, var(--color-tarjeta) 15%);
 }
 
 .noticia-cabecera {
     display: flex;
     justify-content: space-between;
-    align-items: center;
-    flex-wrap: wrap;
-    gap: 0.5rem;
-    margin-bottom: 0.5rem;
+    align-items: flex-start;
+    margin-bottom: 10px;
+    gap: 15px;
 }
 
 .noticia-cabecera h3 {
-    color: var(--azul-claro);
-    font-size: 1.25rem;
-    font-weight: 700;
+    color: var(--color-primario);
+    font-size: 1.3rem;
+    font-weight: 600;
 }
 
 .etiqueta-noticia {
-    font-size: 0.75rem;
-    font-weight: bold;
-    padding: 0.25rem 0.75rem;
+    padding: 4px 10px;
     border-radius: 20px;
-    color: white;
+    font-size: 0.75rem;
+    font-weight: 600;
     text-transform: uppercase;
-    letter-spacing: 0.5px;
 }
 
-.etiqueta-noticia.urgente { background-color: #e53e3e; }
-.etiqueta-noticia.nuevo { background-color: var(--naranja-acento); }
+.etiqueta-noticia.urgente {
+    background-color: #fee2e2;
+    color: var(--color-urgente);
+}
+
+.etiqueta-noticia.nuevo {
+    background-color: #d1fae5;
+    color: var(--color-acento);
+}
 
 .fecha-noticia {
-    font-size: 0.8rem;
-    color: var(--gris-suave);
-    font-weight: bold;
-    margin-bottom: 0.8rem;
+    font-size: 0.85rem;
+    color: var(--color-texto-mutado);
+    margin-bottom: 15px;
 }
 
-/* ==========================================================================
-   SECCIÓN: DOCUMENTOS (PDF)
-   ========================================================================== */
+.texto-noticia {
+    font-size: 1rem;
+    color: var(--color-texto);
+}
+
+/* ==========================================
+   📂 LISTA DE DOCUMENTOS (PDF)
+   ========================================== */
 .lista-documentos {
     list-style: none;
-    margin-top: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
 }
 
-.lista-documentos li {
+.tarjeta-documento {
+    background-color: var(--color-tarjeta);
+    border: 1px solid var(--color-borde);
+    border-radius: 12px;
+    padding: 20px;
     display: flex;
     align-items: center;
-    justify-content: space-between;
-    background: var(--gris-fondo-item);
-    padding: 1.2rem;
-    margin-bottom: 0.8rem;
-    border-radius: 10px;
-    border: 1px solid var(--gris-borde);
-    transition: transform 0.2s, box-shadow 0.2s;
-}
-
-.lista-documentos li:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 5px 15px rgba(0,0,0,0.03);
+    gap: 20px;
+    box-shadow: var(--sombra-suave);
 }
 
 .icono-doc {
-    font-size: 1.8rem;
-    margin-right: 1rem;
-    background: #ffe4e6;
-    padding: 8px;
-    border-radius: 8px;
+    font-size: 2rem;
+    background-color: #fff1f2;
+    padding: 10px;
+    border-radius: 10px;
 }
 
 .info-doc {
@@ -246,122 +250,109 @@ header p {
 
 .info-doc strong {
     display: block;
-    color: var(--gris-oscuro);
+    color: var(--color-primario);
     font-size: 1.05rem;
-    margin-bottom: 2px;
+    margin-bottom: 4px;
 }
 
-.info-doc span {
-    font-size: 0.8rem;
-    color: var(--gris-suave);
+.detalles-doc {
+    font-size: 0.85rem;
+    color: var(--color-texto-mutado);
 }
 
 .botones-doc {
     display: flex;
-    gap: 0.6rem;
+    gap: 10px;
 }
 
 .boton-accion {
     text-decoration: none;
-    padding: 0.55rem 1rem;
+    font-size: 0.88rem;
+    font-weight: 500;
+    padding: 8px 16px;
     border-radius: 6px;
-    font-size: 0.85rem;
-    font-weight: bold;
     transition: all 0.2s ease;
-    text-align: center;
 }
 
 .boton-accion.ver {
-    background-color: transparent;
-    color: var(--azul-claro);
-    border: 1px solid var(--azul-claro);
+    background-color: #f1f5f9;
+    color: var(--color-texto);
 }
 
 .boton-accion.ver:hover {
-    background-color: var(--azul-claro);
-    color: white;
+    background-color: #e2e8f0;
 }
 
 .boton-accion.descargar {
-    background-color: var(--naranja-acento);
-    color: white;
-    border: 1px solid var(--naranja-acento);
+    background-color: var(--color-secundario);
+    color: #ffffff;
 }
 
 .boton-accion.descargar:hover {
-    background-color: var(--naranja-hover);
-    border-color: var(--naranja-hover);
+    background-color: var(--color-primario);
 }
 
-/* ==========================================================================
-   SECCIÓN: GALERÍA DE FOTOS MODERNA (Con efectos Zoom)
-   ========================================================================== */
+/* ==========================================
+   📸 CUADRÍCULA DE GALERÍA
+   ========================================== */
 .cuadricula-galeria {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 1.5rem;
-    margin-top: 1.5rem;
+    gap: 25px;
 }
 
 .tarjeta-foto {
-    background: var(--gris-fondo-item);
-    border-radius: 12px;
-    overflow: hidden; /* Obligatorio: evita que la foto se salga de la tarjeta */
-    border: 1px solid var(--gris-borde);
-    box-shadow: 0 4px 6px rgba(0,0,0,0.01);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    background-color: var(--color-tarjeta);
+    border: 1px solid var(--color-borde);
+    border-radius: 14px;
+    overflow: hidden;
+    box-shadow: var(--sombra-suave);
+    transition: transform 0.2s ease;
 }
 
 .tarjeta-foto:hover {
-    transform: translateY(-5px);
-    box-shadow: var(--sombra-hover);
+    transform: translateY(-4px);
 }
 
 .contenedor-imagen {
     width: 100%;
     height: 200px;
-    overflow: hidden;
-    background-color: var(--gris-borde);
+    background-color: #e2e8f0;
 }
 
 .contenedor-imagen img {
     width: 100%;
     height: 100%;
-    object-fit: cover;
-    transition: transform 0.5s ease;
-}
-
-.tarjeta-foto:hover .contenedor-imagen img {
-    transform: scale(1.08); /* Zoom fluido del 8% */
+    object-fit: cover; /* Ajusta la foto sin deformarla */
 }
 
 .info-foto {
-    padding: 1.2rem;
+    padding: 20px;
 }
 
 .info-foto h4 {
-    margin: 0 0 0.4rem 0;
-    color: var(--azul-universitario);
+    color: var(--color-primario);
     font-size: 1.1rem;
-    font-weight: 700;
+    margin-bottom: 6px;
 }
 
 .info-foto p {
     font-size: 0.9rem;
-    color: var(--gris-suave);
+    color: var(--color-texto-mutado);
 }
 
-/* ==========================================================================
-   SECCIÓN: VIDEO RESPONSIVO (16:9)
-   ========================================================================== */
+/* ==========================================
+   📺 SECCIÓN DE VIDEO
+   ========================================== */
 .contenedor-video {
     position: relative;
-    padding-bottom: 56.25%;
+    width: 100%;
+    padding-bottom: 56.25%; /* Relación de aspecto 16:9 */
     height: 0;
+    border-radius: 14px;
     overflow: hidden;
-    border-radius: 12px;
-    margin-top: 1.5rem;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+    box-shadow: var(--sombra-tarjeta);
+    margin-bottom: 12px;
 }
 
 .contenedor-video iframe {
@@ -370,52 +361,33 @@ header p {
     left: 0;
     width: 100%;
     height: 100%;
-    border: 0;
 }
 
 .pie-foto {
-    font-size: 0.85rem;
-    color: var(--gris-suave);
-    margin-top: 0.6rem;
-    font-style: italic;
+    font-size: 0.9rem;
+    color: var(--color-texto-mutado);
     text-align: center;
 }
 
-/* ==========================================================================
-   ESTILOS EXCLUSIVOS DEL FORMULARIO (contacto.html)
-   ========================================================================== */
-.formulario {
-    display: flex;
-    flex-direction: column;
-    gap: 1.3rem;
-    margin-top: 1.5rem;
-}
-
-.grupo-campo {
-    display: flex;
-    flex-direction: column;
-    gap: 0.4rem;
-}
-
-.grupo-campo label {
-    font-weight: 600;
+/* ==========================================
+   👣 PIE DE PÁGINA (FOOTER)
+   ========================================== */
+footer {
+    background-color: #0f172a; /* Gris muy oscuro, casi negro */
+    color: #94a3b8;
+    text-align: center;
+    padding: 30px 20px;
+    margin-top: 80px;
     font-size: 0.9rem;
-    color: var(--azul-universitario);
+    border-top: 1px solid #1e293b;
 }
 
-.grupo-campo input, 
-.grupo-campo textarea {
-    padding: 0.85rem;
-    border: 1px solid #cbd5e0;
-    border-radius: 8px;
-    font-family: inherit;
-    font-size: 0.95rem;
-    color: var(--gris-oscuro);
-    transition: all 0.2s ease;
-    background-color: #ffffff;
+/* RESPONSIVE: Adaptación para teléfonos celulares */
+@media (max-width: 768px) {
+    body { padding-top: 120px; }
+    .nav-contenedor { flex-direction: column; gap: 12px; }
+    .tarjeta-documento { flex-direction: column; text-align: center; }
+    .botones-doc { width: 100%; justify-content: center; }
+    .cabecera h1 { font-size: 2rem; }
+    .noticia-cabecera { flex-direction: column; }
 }
-
-.grupo-campo input:focus, 
-.grupo-campo textarea:focus {
-    outline: none;
-    border-color: var(--azul-claro);
