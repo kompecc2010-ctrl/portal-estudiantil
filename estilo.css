@@ -1,19 +1,20 @@
 /* ==========================================
-   🛠️ VARIABLES DE ESTILO Y RESETEO
+   ⚙️ CONFIGURACIÓN GENERAL Y VARIABLES (AZUL MARINO)
    ========================================== */
 :root {
-    --bg-dashboard: #f3f4f6;       /* Fondo gris suave de aplicación */
+    --bg-dashboard: #f8fafc;       /* Fondo gris claro de aplicación */
     --bg-tarjeta: #ffffff;         /* Blanco puro para los bloques */
-    --primary: #1e3a8a;            /* Azul marino institucional */
-    --primary-light: #eff6ff;      /* Azul claro para selecciones */
-    --text-main: #1f2937;          /* Texto principal */
-    --text-muted: #6b7280;         /* Texto secundario/fechas */
-    --accent: #10b981;             /* Verde esmeralda para etiquetas nuevas */
+    --primary: #0f172a;            /* Azul Marino Oscuro Elegante (Fondo menú) */
+    --primary-accent: #1e3a8a;     /* Azul Marino Académico para Títulos */
+    --primary-light: #f1f5f9;      /* Gris azulado claro para fondos secundarios */
+    --text-main: #334155;          /* Texto principal */
+    --text-muted: #64748b;         /* Texto secundario y pies de foto */
+    --accent: #10b981;             /* Verde Esmeralda para etiquetas */
     --danger: #ef4444;             /* Rojo para alertas */
-    --border: #e5e7eb;             /* Líneas divisoras sutiles */
+    --border: #e2e8f0;             /* Líneas divisoras sutiles */
     --radius-lg: 16px;
-    --radius-md: 10px;
-    --shadow: 0 4px 6px -1px rgba(0,0,0,0.05), 0 2px 4px -1px rgba(0,0,0,0.02);
+    --radius-md: 12px;
+    --shadow: 0 4px 6px -1px rgba(15, 23, 42, 0.04), 0 2px 4px -1px rgba(15, 23, 42, 0.02);
 }
 
 * {
@@ -28,22 +29,20 @@ body {
     font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
     display: flex;
     min-height: 100vh;
-    overflow-x: hidden;
 }
 
 /* ==========================================
-   🧭 MENU LATERAL (SIDEBAR)
+   🧭 MENÚ LATERAL (SIDEBAR AZUL MARINO)
    ========================================== */
 .dashboard-sidebar {
     width: 260px;
-    background-color: #ffffff;
-    border-right: 1px solid var(--border);
-    display: flex;
-    flex-direction: column;
+    background-color: var(--primary);
     position: fixed;
     height: 100vh;
     left: 0;
     top: 0;
+    display: flex;
+    flex-direction: column;
     z-index: 100;
 }
 
@@ -52,25 +51,32 @@ body {
     display: flex;
     align-items: center;
     gap: 12px;
-    border-bottom: 1px solid var(--border);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Ajustes del logo en imagen */
+.logo-instituto-img {
+    width: 40px;
+    height: 40px;
+    object-fit: contain;
 }
 
 .avatar-instituto {
     font-size: 1.8rem;
-    background-color: var(--primary-light);
-    padding: 6px;
+    background-color: rgba(255, 255, 255, 0.1);
+    padding: 4px;
     border-radius: var(--radius-md);
 }
 
 .marca-texto h2 {
     font-size: 1.15rem;
-    color: var(--primary);
+    color: #ffffff;
     font-weight: 700;
 }
 
 .marca-texto span {
     font-size: 0.75rem;
-    color: var(--text-muted);
+    color: #94a3b8;
 }
 
 .sidebar-menu {
@@ -90,7 +96,7 @@ body {
     align-items: center;
     gap: 12px;
     padding: 12px 16px;
-    color: var(--text-muted);
+    color: #94a3b8;
     text-decoration: none;
     font-weight: 500;
     font-size: 0.95rem;
@@ -99,34 +105,33 @@ body {
 }
 
 .sidebar-menu a:hover, .sidebar-menu a.activo {
-    background-color: var(--primary-light);
-    color: var(--primary);
+    background-color: rgba(255, 255, 255, 0.1);
+    color: #ffffff;
 }
 
 .sidebar-menu .menu-destacado {
-    background-color: var(--primary);
+    background-color: var(--primary-accent);
     color: #ffffff;
     margin-top: 20px;
 }
 
 .sidebar-menu .menu-destacado:hover {
-    background-color: #1d4ed8;
-    color: #ffffff;
+    background-color: #2563eb;
 }
 
 .sidebar-footer {
     padding: 24px;
     font-size: 0.8rem;
-    color: var(--text-muted);
-    border-top: 1px solid var(--border);
+    color: #64748b;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
     text-align: center;
 }
 
 /* ==========================================
-   🖼️ ESTRUCTURA DEL CONTENIDO (LAYOUT)
+   🖼️ SECCIÓN DEL CONTENIDO (LAYOUT)
    ========================================== */
 .dashboard-layout {
-    margin-left: 260px; /* Deja espacio al menú fijo izquierdo */
+    margin-left: 260px;
     flex-grow: 1;
     padding: 40px;
     max-width: 1100px;
@@ -138,9 +143,8 @@ body {
 
 .header-saludo h1 {
     font-size: 2rem;
-    color: var(--primary);
+    color: var(--primary-accent);
     font-weight: 700;
-    letter-spacing: -0.5px;
 }
 
 .header-saludo p {
@@ -149,7 +153,6 @@ body {
     margin-top: 4px;
 }
 
-/* Rejilla de bloques distribuidos */
 .tablero-grid {
     display: grid;
     grid-template-columns: 2fr 1fr;
@@ -171,7 +174,7 @@ body {
 
 .titulo-bloque {
     font-size: 1.25rem;
-    color: var(--primary);
+    color: var(--primary-accent);
     font-weight: 600;
     margin-bottom: 20px;
     border-bottom: 2px solid var(--primary-light);
@@ -185,22 +188,29 @@ body {
 }
 
 /* ==========================================
-   📰 CARRUSEL DE NOTICIAS
+   📰 CONFIGURACIÓN DE LOS DOS CARRUSELES (FLUIDOS)
    ========================================== */
-.contenedor-carrusel {
+.contenedor-carrusel, 
+.contenedor-carrusel-fotos {
     overflow: hidden;
-    background-color: #f9fafb;
+    background-color: #f8fafc;
     border-radius: var(--radius-md);
+    border: 1px solid var(--border);
 }
 
-.carrusel-deslizable {
+.carrusel-deslizable, 
+.carrusel-fotos-deslizable {
     display: flex;
-    transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .tarjeta-noticia-carrusel {
     min-width: 100%;
-    padding: 24px;
+    padding: 28px;
+}
+
+.tarjeta-noticia-carrusel.urgente {
+    background: linear-gradient(to right, #fff5f5, #ffffff 20%);
 }
 
 .noticia-cabecera {
@@ -211,12 +221,12 @@ body {
 }
 
 .noticia-cabecera h3 {
-    font-size: 1.1rem;
-    font-weight: 600;
+    font-size: 1.15rem;
+    color: var(--primary-accent);
 }
 
 .etiqueta-noticia {
-    padding: 4px 8px;
+    padding: 4px 10px;
     border-radius: 20px;
     font-size: 0.7rem;
     font-weight: 600;
@@ -232,8 +242,45 @@ body {
     margin-bottom: 12px;
 }
 
+/* Carrusel de Fotos Específico */
+.item-foto-carrusel {
+    min-width: 100%;
+    display: flex;
+    flex-direction: column;
+    background-color: #ffffff;
+}
+
+.contenedor-imagen-carrusel {
+    width: 100%;
+    height: 380px; /* Tamaño ideal y unificado para las fotos */
+    background-color: #e2e8f0;
+}
+
+.contenedor-imagen-carrusel img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.info-foto-carrusel {
+    padding: 20px;
+    background-color: #ffffff;
+    border-top: 1px solid var(--border);
+}
+
+.info-foto-carrusel h4 {
+    font-size: 1.1rem;
+    color: var(--primary-accent);
+    margin-bottom: 4px;
+}
+
+.info-foto-carrusel p {
+    font-size: 0.9rem;
+    color: var(--text-muted);
+}
+
 /* ==========================================
-   📂 LISTA DE DOCUMENTOS
+   📂 LISTA DE DOCUMENTOS (PDF)
    ========================================== */
 .lista-documentos {
     list-style: none;
@@ -246,103 +293,63 @@ body {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 16px;
-    background-color: #f9fafb;
+    padding: 16px 20px;
+    background-color: #ffffff;
     border-radius: var(--radius-md);
     border: 1px solid var(--border);
     gap: 16px;
 }
 
-.icono-doc {
-    font-size: 1.5rem;
-}
-
-.info-doc {
-    flex-grow: 1;
-}
-
-.info-doc strong {
-    display: block;
-    font-size: 0.95rem;
-    color: var(--primary);
-}
-
-.info-doc span {
-    font-size: 0.8rem;
-    color: var(--text-muted);
-}
-
-.botones-doc {
-    display: flex;
-    gap: 8px;
-}
+.icono-doc { font-size: 1.6rem; }
+.info-doc { flex-grow: 1; }
+.info-doc strong { display: block; font-size: 0.95rem; color: var(--primary-accent); }
+.info-doc span { font-size: 0.8rem; color: var(--text-muted); }
+.botones-doc { display: flex; gap: 8px; }
 
 .boton-accion {
     text-decoration: none;
     font-size: 0.85rem;
     font-weight: 500;
-    padding: 8px 14px;
+    padding: 8px 16px;
     border-radius: 6px;
     transition: all 0.2s;
 }
 
-.boton-accion.ver { background-color: #e5e7eb; color: var(--text-main); }
-.boton-accion.descargar { background-color: var(--primary); color: white; }
-.boton-accion.descargar:hover { background-color: #1d4ed8; }
+.boton-accion.ver { background-color: #f1f5f9; color: var(--text-main); }
+.boton-accion.ver:hover { background-color: #e2e8f0; }
+.boton-accion.descargar { background-color: var(--primary-accent); color: white; }
+.boton-accion.descargar:hover { background-color: #2563eb; }
 
 /* ==========================================
-   📸 GALERÍA Y VIDEOS
+   📺 SECCIÓN DE VIDEO
    ========================================== */
-.cuadricula-galeria {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-    gap: 20px;
-}
-
-.tarjeta-foto {
-    border-radius: var(--radius-md);
-    overflow: hidden;
-    border: 1px solid var(--border);
-}
-
-.contenedor-imagen {
-    width: 100%;
-    height: 160px;
-}
-
-.contenedor-imagen img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-}
-
-.info-foto { padding: 14px; }
-.info-foto h4 { font-size: 1rem; margin-bottom: 4px; color: var(--primary); }
-.info-foto p { font-size: 0.85rem; color: var(--text-muted); }
-
 .contenedor-video {
     position: relative;
     padding-bottom: 56.25%;
     height: 0;
     border-radius: var(--radius-md);
     overflow: hidden;
-    margin-bottom: 8px;
+    margin-bottom: 12px;
 }
 
 .contenedor-video iframe {
     position: absolute;
     width: 100%;
     height: 100%;
+    top: 0;
+    left: 0;
 }
 
-.pie-video { font-size: 0.8rem; color: var(--text-muted); }
+.pie-video { font-size: 0.85rem; color: var(--text-muted); text-align: center; }
 
 /* ==========================================
-   📱 ADAPTACIÓN MÓVIL (RESPONSIVE)
+   📱 RESPONSIVE (MÓVILES)
    ========================================== */
 @media (max-width: 900px) {
-    .dashboard-sidebar { display: none; } /* En móviles ocultamos el menú lateral */
+    .dashboard-sidebar { display: none; }
     .dashboard-layout { margin-left: 0; padding: 20px; }
     .tablero-grid { grid-template-columns: 1fr; }
-    .item-documento { flex-direction: column; text-align: center; }
+    .item-documento { flex-direction: column; text-align: center; gap: 12px; }
+    .botones-doc { width: 100%; justify-content: center; }
+    .contenedor-imagen-carrusel { height: 220px; }
 }
