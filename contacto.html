@@ -1,215 +1,37 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contacto - Unidad Educativa Particular Jambeli</title>
-    <!-- Importación de la misma fuente premium del Dashboard -->
-    <link rel="preconnect" href="https://googleapis.com">
-    <link rel="preconnect" href="https://gstatic.com" crossorigin>
-    <link href="https://googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="estilo.css">
-    <style>
-        /* Estilos específicos adicionales para los elementos del formulario de contacto */
-        .formulario-contacto {
-            display: flex;
-            flex-direction: column;
-            gap: 18px;
-            max-width: 550px;
-            margin-top: 15px;
-        }
+<!-- Coloca esto dentro de tu .tarjeta-tablero en la página de Contacto -->
+<div class="tarjeta-tablero">
+    <h2 class="titulo-bloque">Formulario de Contacto</h2>
+    <p class="subtitulo-bloque">Completa tus datos y un asesor se pondrá en contacto contigo a la brevedad.</p>
 
-        .grupo-formulario {
-            display: flex;
-            flex-direction: column;
-            gap: 6px;
-        }
-
-        .grupo-formulario label {
-            font-size: 0.9rem;
-            font-weight: 600;
-            color: var(--primary);
-        }
-
-        .grupo-formulario input,
-        .grupo-formulario textarea {
-            padding: 12px 14px;
-            border: 1px solid var(--border);
-            border-radius: var(--radius-md);
-            font-family: inherit;
-            font-size: 0.95rem;
-            color: var(--text-main);
-            background-color: #f9fafb;
-            transition: all 0.2s ease;
-        }
-
-        .grupo-formulario input:focus,
-        .grupo-formulario textarea:focus {
-            outline: none;
-            border-color: var(--primary);
-            background-color: #ffffff;
-            box-shadow: 0 0 0 3px rgba(30, 58, 138, 0.1);
-        }
-
-        .boton-enviar {
-            background-color: var(--primary);
-            color: white;
-            border: none;
-            padding: 14px;
-            border-radius: var(--radius-md);
-            font-weight: 600;
-            font-size: 1rem;
-            cursor: pointer;
-            transition: background-color 0.2s;
-            margin-top: 10px;
-        }
-
-        .boton-enviar:hover {
-            background-color: #1d4ed8;
-        }
-
-        .info-contacto-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-            gap: 20px;
-            margin-top: 25px;
-        }
-
-        .tarjeta-info-contacto {
-            background-color: #f9fafb;
-            border: 1px solid var(--border);
-            padding: 18px;
-            border-radius: var(--radius-md);
-            display: flex;
-            align-items: flex-start;
-            gap: 14px;
-        }
-
-        .icono-contacto {
-            font-size: 1.4rem;
-            background-color: var(--primary-light);
-            padding: 8px;
-            border-radius: 8px;
-        }
-
-        .detalles-contacto h4 {
-            font-size: 0.95rem;
-            color: var(--primary);
-            margin-bottom: 2px;
-        }
-
-        .detalles-contacto p {
-            font-size: 0.88rem;
-            color: var(--text-muted);
-        }
-    </style>
-</head>
-<body>
-
-    <!-- SIDEBAR ENLAZADO (Mantiene la navegación idéntica a la página principal) -->
-    <aside class="dashboard-sidebar">
-        <div class="sidebar-marca">
-            <span class="avatar-instituto">🏫</span>
-            <div class="marca-texto">
-                <h2>Jambeli</h2>
-                <span>Portal Estudiantil</span>
-            </div>
-        </div>
-        <nav class="sidebar-menu">
-            <ul>
-                <li><a href="index.html#inicio"><span>🏠</span> Inicio</a></li>
-                <li><a href="index.html#noticias"><span>📰</span> Noticias</a></li>
-                <li><a href="index.html#recursos"><span>📚</span> Recursos</a></li>
-                <li><a href="index.html#galeria"><span>📸</span> Galería</a></li>
-                <li><a href="contacto.html" class="activo menu-destacado"><span>✉️</span> Contacto</a></li>
-            </ul>
-        </nav>
-        <div class="sidebar-footer">
-            <p>&copy; 2026 Jambeli</p>
-        </div>
-    </aside>
-
-    <!-- Contenedor Principal del Dashboard -->
-    <div class="dashboard-layout">
+    <!-- FORMULARIO CONECTADO -->
+    <form action="https://web3forms.com" method="POST" class="formulario-contacto">
         
-        <!-- Cabecera de la Sección -->
-        <header class="dashboard-header">
-            <div class="header-saludo">
-                <h1>Atención y Consultas</h1>
-                <p>¿Tienes dudas o necesitas soporte académico? Escríbenos directamente</p>
-            </div>
-        </header>
+        <!-- Clave de acceso invisible (Reemplaza el valor por tu clave gratuita de web3forms.com) -->
+        <input type="hidden" name="access_key" value="TU-CLAVE-AQUI">
 
-        <main class="dashboard-contenido">
-            
-            <div class="tablero-grid" style="grid-template-columns: 1fr;">
-                
-                <!-- BLOQUE DEL FORMULARIO -->
-                <section class="tarjeta-tablero">
-                    <h2 class="titulo-bloque">Formulario de Contacto</h2>
-                    <p class="subtitulo-bloque">Completa tus datos y un asesor se pondrá en contacto contigo a la brevedad.</p>
-                    
-                    <form class="formulario-contacto" action="#" method="POST">
-                        <div class="grupo-formulario">
-                            <label for="nombre">Nombre Completo</label>
-                            <input type="text" id="nombre" name="nombre" placeholder="Ej. Juan Pérez" required>
-                        </div>
+        <div class="grupo-formulario">
+            <label for="nombre">Nombre Completo</label>
+            <input type="text" id="nombre" name="nombre" placeholder="Ej. Juan Pérez" required>
+        </div>
 
-                        <div class="grupo-formulario">
-                            <label for="correo">Correo Electrónico Estudiantil / Institucional</label>
-                            <input type="email" id="correo" name="correo" placeholder="ejemplo@jambeli.edu.ec" required>
-                        </div>
+        <div class="grupo-formulario">
+            <label for="correo">Correo Electrónico Estudiantil / Institucional</label>
+            <input type="email" id="correo" name="correo" placeholder="ejemplo@jambeli.edu.ec" required>
+        </div>
 
-                        <div class="grupo-formulario">
-                            <label for="asunto">Asunto</label>
-                            <input type="text" id="asunto" name="asunto" placeholder="Ej. Problema con descarga de archivos" required>
-                        </div>
+        <div class="grupo-formulario">
+            <label for="asunto">Asunto</label>
+            <input type="text" id="asunto" name="asunto" placeholder="Motivo de tu consulta" required>
+        </div>
 
-                        <div class="grupo-formulario">
-                            <label for="mensaje">Mensaje o Consulta</label>
-                            <textarea id="mensaje" name="mensaje" rows="5" placeholder="Escribe detalladamente tu consulta aquí..." required></textarea>
-                        </div>
+        <div class="grupo-formulario">
+            <label for="mensaje">Mensaje o Consulta</label>
+            <textarea id="mensaje" name="mensaje" rows="5" placeholder="Escribe aquí tu mensaje detallado..." required></textarea>
+        </div>
 
-                        <button type="submit" class="boton-enviar">Enviar Mensaje</button>
-                    </form>
-                </section>
+        <!-- Redirección opcional después de enviar el mensaje -->
+        <input type="hidden" name="redirect" value="https://vercel.app">
 
-                <!-- BLOQUE DE INFORMACIÓN INSTITUCIONAL DIRECTA -->
-                <section class="tarjeta-tablero">
-                    <h2 class="titulo-bloque">Canales de Atención Directa</h2>
-                    <p class="subtitulo-bloque">También puedes comunicarte con las oficinas administrativas del plantel:</p>
-                    
-                    <div class="info-contacto-grid">
-                        <div class="tarjeta-info-contacto">
-                            <span class="icono-contacto">📍</span>
-                            <div class="detalles-contacto">
-                                <h4>Ubicación</h4>
-                                <p>Oficinas Centrales del Plantel</p>
-                            </div>
-                        </div>
-
-                        <div class="tarjeta-info-contacto">
-                            <span class="icono-contacto">📞</span>
-                            <div class="detalles-contacto">
-                                <h4>Teléfono de Soporte</h4>
-                                <p>+593 Horarios de oficina</p>
-                            </div>
-                        </div>
-
-                        <div class="tarjeta-info-contacto">
-                            <span class="icono-contacto">✉️</span>
-                            <div class="detalles-contacto">
-                                <h4>Correo de Secretaría</h4>
-                                <p>info@jambeli.edu.ec</p>
-                            </div>
-                        </div>
-                    </div>
-                </section>
-
-            </div>
-
-        </main>
-    </div>
-
-</body>
-</html>
+        <button type="submit" class="boton-enviar">Enviar Mensaje</button>
+    </form>
+</div>
