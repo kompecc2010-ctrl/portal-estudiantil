@@ -1,68 +1,120 @@
-<!-- REJILLA DE DOS COLUMNAS (IGUAL A LA PAGINA PRINCIPAL) -->
-<div class="tablero-grid">
-    
-    <!-- COLUMNA IZQUIERDA: FORMULARIO -->
-    <section class="tarjeta-tablero">
-        <h2 class="titulo-bloque">Formulario de Contacto</h2>
-        <p class="subtitulo-bloque">Completa tus datos y un asesor se pondrá en contacto contigo a la brevedad.</p>
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contacto - Unidad Educativa Particular Jambeli</title>
+    <!-- Aquí es donde se enlazan tus estilos CSS -->
+    <link rel="stylesheet" href="./style.css">
+    <!-- Fuente moderna -->
+    <link href="https://googleapis.com" rel="stylesheet">
+</head>
+<body>
 
-        <form action="https://web3forms.com" method="POST" class="formulario-contacto">
-            <!-- Token invisible para el correo (Saca tu clave en web3forms.com) -->
-            <input type="hidden" name="access_key" value="TU-CLAVE-AQUI">
-
-            <div class="grupo-formulario">
-                <label for="nombre">Nombre Completo</label>
-                <input type="text" id="nombre" name="nombre" placeholder="Ej. Juan Pérez" required>
-            </div>
-
-            <div class="grupo-formulario">
-                <label for="correo">Correo Electrónico Estudiantil / Institucional</label>
-                <input type="email" id="correo" name="correo" placeholder="ejemplo@jambeli.edu.ec" required>
-            </div>
-
-            <div class="grupo-formulario">
-                <label for="asunto">Asunto</label>
-                <input type="text" id="asunto" name="asunto" placeholder="Motivo de tu consulta" required>
-            </div>
-
-            <div class="grupo-formulario">
-                <label for="mensaje">Mensaje o Consulta</label>
-                <textarea id="mensaje" name="mensaje" rows="5" placeholder="Escribe aquí tu mensaje detallado..." required></textarea>
-            </div>
-
-            <button type="submit" class="boton-enviar">Enviar Mensaje</button>
-        </form>
-    </section>
-
-    <!-- COLUMNA DERECHA: CANALES DIRECTOS (REUTILIZA TUS CLASES EXISTENTES) -->
-    <section class="tarjeta-tablero">
-        <h2 class="titulo-bloque">Canales Directos</h2>
-        <p class="subtitulo-bloque">También puedes comunicarte con las oficinas del plantel:</p>
-        
-        <div class="lista-documentos">
-            <div class="item-documento">
-                <div class="icono-doc">📍</div>
-                <div class="info-doc">
-                    <strong>Ubicación</strong>
-                    <span>Oficinas Centrales del Plantel</span>
-                </div>
-            </div>
-
-            <div class="item-documento">
-                <div class="icono-doc">📞</div>
-                <div class="info-doc">
-                    <strong>Teléfono de Soporte</strong>
-                    <span>+593 Horarios de oficina</span>
-                </div>
-            </div>
-
-            <div class="item-documento">
-                <div class="icono-doc">✉</div>
-                <div class="info-doc">
-                    <strong>Correo de Secretaría</strong>
-                    <span>info@jambeli.edu.ec</span>
-                </div>
+    <!-- 🧭 MENÚ LATERAL (SIDEBAR) -->
+    <aside class="dashboard-sidebar">
+        <div class="sidebar-marca">
+            <div class="avatar-instituto">🏫</div>
+            <div class="marca-texto">
+                <h2>Jambeli</h2>
+                <span>Página Estudiantil</span>
             </div>
         </div>
-    </section>
-</div>
+        <nav class="sidebar-menu">
+            <ul>
+                <li><a href="index.html">🏠 Inicio</a></li>
+                <li><a href="index.html#noticias">📰 Noticias</a></li>
+                <li><a href="index.html#recursos">📚 Recursos</a></li>
+                <li><a href="index.html#galeria">📸 Galería</a></li>
+                <li><a href="contacto.html" class="activo">✉ Contacto</a></li>
+            </ul>
+        </nav>
+        <div class="sidebar-footer">
+            &copy; 2026 Jambeli
+        </div>
+    </aside>
+
+    <!-- 🖼️ ESTRUCTURA DEL CONTENIDO (LAYOUT) -->
+    <main class="dashboard-layout">
+        
+        <!-- ENCABEZADO DE SALUDO -->
+        <header class="dashboard-header">
+            <div class="header-saludo">
+                <h1>Atención y Consultas</h1>
+                <p>¿Tienes dudas o necesitas soporte académico? Escríbenos directamente.</p>
+            </div>
+        </header>
+
+        <!-- REJILLA DE DOS COLUMNAS -->
+        <div class="tablero-grid">
+            
+            <!-- COLUMNA IZQUIERDA: FORMULARIO -->
+            <section class="tarjeta-tablero">
+                <h2 class="titulo-bloque">Formulario de Contacto</h2>
+                <p class="subtitulo-bloque">Completa tus datos y un asesor se pondrá en contacto contigo a la brevedad.</p>
+
+                <form action="https://web3forms.com" method="POST" class="formulario-contacto">
+                    <!-- Token invisible para que funcione el correo -->
+                    <input type="hidden" name="access_key" value="TU-CLAVE-AQUI">
+
+                    <div class="grupo-formulario">
+                        <label for="nombre">Nombre Completo</label>
+                        <input type="text" id="nombre" name="nombre" placeholder="Ej. Juan Pérez" required>
+                    </div>
+
+                    <div class="grupo-formulario">
+                        <label for="correo">Correo Electrónico Estudiantil / Institucional</label>
+                        <input type="email" id="correo" name="correo" placeholder="ejemplo@jambeli.edu.ec" required>
+                    </div>
+
+                    <div class="grupo-formulario">
+                        <label for="asunto">Asunto</label>
+                        <input type="text" id="asunto" name="asunto" placeholder="Motivo de tu consulta" required>
+                    </div>
+
+                    <div class="grupo-formulario">
+                        <label for="mensaje">Mensaje o Consulta</label>
+                        <textarea id="mensaje" name="mensaje" rows="5" placeholder="Escribe aquí tu mensaje detallado..." required></textarea>
+                    </div>
+
+                    <button type="submit" class="boton-enviar">Enviar Mensaje</button>
+                </form>
+            </section>
+
+            <!-- COLUMNA DERECHA: CANALES DIRECTOS -->
+            <section class="tarjeta-tablero">
+                <h2 class="titulo-bloque">Canales Directos</h2>
+                <p class="subtitulo-bloque">También puedes comunicarte con las oficinas del plantel:</p>
+                
+                <div class="lista-documentos">
+                    <div class="item-documento">
+                        <div class="icono-doc">📍</div>
+                        <div class="info-doc">
+                            <strong>Ubicación</strong>
+                            <span>Oficinas Centrales del Plantel</span>
+                        </div>
+                    </div>
+
+                    <div class="item-documento">
+                        <div class="icono-doc">📞</div>
+                        <div class="info-doc">
+                            <strong>Teléfono de Soporte</strong>
+                            <span>+593 Horarios de oficina</span>
+                        </div>
+                    </div>
+
+                    <div class="item-documento">
+                        <div class="icono-doc">✉</div>
+                        <div class="info-doc">
+                            <strong>Correo de Secretaría</strong>
+                            <span>info@jambeli.edu.ec</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+        </div>
+    </main>
+
+</body>
+</html>
