@@ -3,102 +3,117 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portal Estudiantil - Inicio</title>
-    <!-- Importamos una fuente moderna desde Google Fonts -->
-    <link rel="preconnect" href="https://googleapis.com">
-    <link rel="preconnect" href="https://gstatic.com" crossorigin>
-    <link href="https://googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <title>Unidad Educativa Particular Jambeli</title>
     <link rel="stylesheet" href="estilo.css">
 </head>
 <body>
 
-    <!-- Barra de Navegación -->
+    <!-- Barra de Navegación (Conecta ambas páginas) -->
     <nav class="barra-navegacion">
-        <div class="nav-contenedor">
-            <div class="logo">EduEspacio</div>
-            <ul class="enlaces">
-                <li><a href="#inicio">Inicio</a></li>
-                <li><a href="#noticias">Noticias</a></li>
-                <li><a href="#recursos">Recursos</a></li>
-                <li><a href="#galeria">Galería</a></li>
-                <li><a href="contacto.html" class="menu-destacado">Contacto</a></li>
-            </ul>
-        </div>
+        <div class="logo">Jambeli</div>
+        <ul class="enlaces">
+            <li><a href="index.html#inicio">Inicio</a></li>
+            <li><a href="index.html#noticias">Noticias</a></li>
+			<li><a href="index.html#galeria">Galería</a></li>
+            <li><a href="index.html#recursos">Recursos</a></li>
+            <!-- Enlace directo a la segunda página -->
+            <li><a href="contacto.html" class="menu-destacado">Contacto</a></li>
+        </ul>
     </nav>
 
     <!-- Cabecera Principal -->
-    <header id="inicio" class="cabecera">
-        <div class="cabecera-contenido">
-            <h1>Portal de Recursos Estudiantiles</h1>
-            <p>Tu espacio académico con noticias, guías y material de apoyo semanal</p>
-        </div>
+    <header id="inicio">
+        <h1>Unidad Educativa Particular Jambeli</h1>
+        <p>Educamos para el futuro</p>
     </header>
 
     <main class="contenedor">
         
-        <!-- SECCIÓN: NOTICIAS SEMANALES EN CARRUSEL -->
-        <section id="noticias" class="seccion">
-            <h2 class="titulo-seccion">📰 Noticias Semanales</h2>
+                <!-- SECCIÓN NOTICIAS SEMANALES subir archivos con los mismos nombres en formato pdf -->
+                        <section id="noticias" class="seccion">
+            <h2 class="titulo-seccion">Noticias Semanales</h2>
             
+            <!-- Contenedor principal que van a ir rotando se puede poner cualquier cantidad y borrar las antiguas-->
             <div class="contenedor-carrusel">
                 <div class="carrusel-deslizable" id="carruselNoticias">
                     
                     <!-- Noticia 1 -->
                     <div class="tarjeta-noticia-carrusel urgente">
                         <div class="noticia-cabecera">
-                            <h3>⚠️ ¡IMPORTANTE! Cambio en Fechas de Exámenes</h3>
+                            <h3>¡IMPORTANTE! Cambio en Fechas de Exámenes</h3>
                             <span class="etiqueta-noticia urgente">Urgente</span>
                         </div>
-                        <p class="fecha-noticia">Publicado: Hace 1 hora</p>
-                        <p class="texto-noticia">Se han modificado oficialmente los horarios de las evaluaciones del segundo trimestre. Por favor, descarguen el nuevo cronograma en PDF en la sección de recursos.</p>
+                        <p class="fecha-noticia">Publicado: Hace fecha de publicacion</p>
+                        <p>Se han modificado oficialmente los horarios de las evaluaciones del segundo trimestre. Por favor, descarguen el nuevo cronograma en PDF en la sección de recursos.</p>
                     </div>
 
                     <!-- Noticia 2 -->
                     <div class="tarjeta-noticia-carrusel">
                         <div class="noticia-cabecera">
-                            <h3>🚀 Club de Programación</h3>
+                            <h3>Abiertas las Inscripciones para la materia de Programación</h3>
                             <span class="etiqueta-noticia nuevo">Nuevo</span>
                         </div>
-                        <p class="fecha-noticia">Publicado: Ayer</p>
-                        <p class="texto-noticia">Ya puedes registrarte en el taller práctico de GitHub, HTML5 y CSS3 avanzados. Las clases serán en el laboratorio de informática.</p>
+                        <p class="fecha-noticia">Publicado: Hace fecha de publicacion</p>
+                        <p>Ya puedes registrarte en el taller práctico. Las clases serán en el laboratorio de informática.</p>
                     </div>
 
                     <!-- Noticia 3 -->
                     <div class="tarjeta-noticia-carrusel">
                         <div class="noticia-cabecera">
-                            <h3>📚 Entrega de Textos Guía de Estudio</h3>
+                            <h3>Entrega de Boletines de calificaciones</h3>
                             <span class="etiqueta-noticia nuevo">Nuevo</span>
                         </div>
                         <p class="fecha-noticia">Publicado: Hace 2 días</p>
-                        <p class="texto-noticia">Los libros de apoyo para el área de ciencias y programación están listos para retiro en la biblioteca general en horarios matutinos.</p>
+                        <p>Los boletines están listos para retiro en las fechas estipuladas.</p>
                     </div>
 
                 </div>
             </div>
         </section>
 
-        <!-- SECCIÓN: DOCUMENTOS ESTUDIANTILES (PDF) -->
+        <!-- SCRIPT DE JAVASCRIPT PARA EL MOVIMIENTO AUTOMÁTICO NO TOCAR ESTA PARTE ES AVANZADO-->
+        <script>
+            const carrusel = document.getElementById('carruselNoticias');
+            let indiceActual = 0;
+
+            function moverCarrusel() {
+                const totalNoticias = carrusel.children.length;
+                indiceActual = (indiceActual + 1) % totalNoticias;
+                
+                // Desplaza horizontalmente el contenedor basado en la noticia actual
+                carrusel.style.transform = `translateX(-${indiceActual * 100}%)`;
+            }
+
+            // Ejecuta la función cada 3000 milisegundos (3 segundos)
+            setInterval(moverCarrusel, 3000);
+        </script>
+
+
+        <!-- SECCIÓN: DOCUMENTOS ESTUDIANTILES  SUBIR EN FORMATO PDF -->
         <section id="recursos" class="seccion">
-            <h2 class="titulo-seccion">📚 Material de Estudio y Recursos PDF</h2>
-            <p class="subtitulo-seccion">Haz clic en los botones para abrir los documentos en una nueva pestaña o guardarlos en tu dispositivo:</p>
+            <h2 class="titulo-seccion">Material de Estudio y Recursos PDF</h2>
+            <p>Haz clic en los botones para abrir los documentos en una nueva pestaña o guardarlos en tu dispositivo:</p>
             
             <ul class="lista-documentos">
-                <li class="tarjeta-documento">
+                <li>
                     <span class="icono-doc">📕</span>
                     <div class="info-doc">
+					<!-- El archivo debe estar guardado con el mismo nombre y formato -->
                         <strong>Cronograma_Examenes_2do_Trimestre.pdf</strong>
-                        <span class="detalles-doc">Formato: PDF Seguro | Actualizado esta semana</span>
+                        <span>Formato: PDF Seguro |poner fecha que se subio el archivo</span>
                     </div>
                     <div class="botones-doc">
+                        <!-- target="_blank" hace que el PDF se abra en otra pestaña sin cerrar tu web -->
                         <a href="documentos/Cronograma_Examenes_2do_Trimestre.pdf" target="_blank" class="boton-accion ver">Ver Online</a>
                         <a href="documentos/Cronograma_Examenes_2do_Trimestre.pdf" download class="boton-accion descargar">Descargar</a>
                     </div>
                 </li>
-                <li class="tarjeta-documento">
+                <li>
                     <span class="icono-doc">📕</span>
                     <div class="info-doc">
+					<!-- El archivo debe estar guardado con el mismo nombre y formato -->
                         <strong>Guia_Basica_GitHub_Estudiantes.pdf</strong>
-                        <span class="detalles-doc">Formato: PDF Educativo | Material de apoyo</span>
+                        <span>Formato: PDF Educativo | Material de apoyo</span>
                     </div>
                     <div class="botones-doc">
                         <a href="documentos/Estudiantes.pdf" target="_blank" class="boton-accion ver">Ver Online</a>
@@ -108,10 +123,11 @@
             </ul>
         </section>
 
-        <!-- SECCIÓN: GALERÍA FOTOGRÁFICA INTERACTIVA -->
+
+                <!-- SECCIÓN: FOTOGRÁFICA  -->
         <section id="galeria" class="seccion">
-            <h2 class="titulo-seccion">📸 Galería de Actividades</h2>
-            <p class="subtitulo-seccion">Un registro visual de nuestros proyectos estudiantiles:</p>
+            <h2 class="titulo-seccion">Fotos de Actividades</h2>
+            <p>Un registro visual de nuestros proyectos estudiantiles:</p>
             
             <div class="cuadricula-galeria">
                 <!-- Foto 1 -->
@@ -121,7 +137,7 @@
                     </div>
                     <div class="info-foto">
                         <h4>Clases de Desarrollo Web</h4>
-                        <p>Estudiantes practicando la maquetación en código HTML y CSS.</p>
+                        <p>Estudiantes practicandocódigo HTML y CSS.</p>
                     </div>
                 </div>
 
@@ -132,20 +148,26 @@
                     </div>
                     <div class="info-foto">
                         <h4>Proyectos Grupales</h4>
-                        <p>Diseño y planeación de la estructura del portal académico.</p>
+                        <p>Diseño y planeación de la estructura diseño web.</p>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- SECCIÓN: VIDEO TUTORIAL -->
+
+		<!-- SECCIÓN: VIDEOS -->
         <section class="seccion">
-            <h2 class="titulo-seccion">📺 Video Tutorial Destacado</h2>
+            <h2 class="titulo-seccion">Videos de actividades</h2>
             <div class="contenedor-video">
-                <iframe src="https://youtube.com/embed/FDJZiBfPdXE" title="El Reino Animal" frameborder="0" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+<iframe src="https://youtube.com/embed/FDJZiBfPdXE" title="tiktok" frameborder="0" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
             </div>
-            <p class="pie-foto">Introducción práctica a cómo organizar tus apuntes digitales del Reino Animal.</p>
+            <p class="pie-foto">escribir nota de que se trata el  video.</p>
         </section>
+		
+            </div>
+        </section>
+
+       
 
     </main>
 
@@ -153,18 +175,5 @@
         <p>&copy; 2026 Derechos reservados Jambeli.</p>
     </footer>
 
-    <!-- SCRIPT DEL CARRUSEL -->
-    <script>
-        const carrusel = document.getElementById('carruselNoticias');
-        let indiceActual = 0;
-
-        function moverCarrusel() {
-            const totalNoticias = carrusel.children.length;
-            indiceActual = (indiceActual + 1) % totalNoticias;
-            carrusel.style.transform = `translateX(-${indiceActual * 100}%)`;
-        }
-
-        setInterval(moverCarrusel, 4000); // 4 segundos da más tiempo para leer de forma cómoda
-    </script>
 </body>
 </html>
