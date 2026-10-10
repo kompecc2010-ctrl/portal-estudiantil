@@ -343,18 +343,7 @@ body {
 .pie-video { font-size: 0.85rem; color: var(--text-muted); text-align: center; }
 
 /* ==========================================
-   📱 RESPONSIVE (MÓVILES)
-   ========================================== */
-@media (max-width: 900px) {
-    .dashboard-sidebar { display: none; }
-    .dashboard-layout { margin-left: 0; padding: 20px; }
-    .tablero-grid { grid-template-columns: 1fr; }
-    .item-documento { flex-direction: column; text-align: center; gap: 12px; }
-    .botones-doc { width: 100%; justify-content: center; }
-    .contenedor-imagen-carrusel { height: 220px; }
-}
-/* ==========================================
-   📩 SECCIÓN DE CONTACTO (FORMULARIO)
+   📩 SECCIÓN EXCLUSIVA DE CONTACTO (FORMULARIO)
    ========================================== */
 .formulario-contacto {
     display: flex;
@@ -380,25 +369,25 @@ body {
     padding: 12px 16px;
     border: 1px solid var(--border);
     border-radius: var(--radius-md);
-    background-color: #f9fafb;
+    background-color: var(--bg-dashboard);
     font-family: inherit;
     font-size: 0.95rem;
     color: var(--text-main);
     transition: all 0.2s ease;
 }
 
-/* Efecto de enfoque moderno azul */
+/* Enfoque dinámico usando el color académico */
 .grupo-formulario input:focus,
 .grupo-formulario textarea:focus {
     outline: none;
-    border-color: var(--primary);
+    border-color: var(--primary-accent);
     background-color: #ffffff;
-    box-shadow: 0 0 0 4px var(--primary-light);
+    box-shadow: 0 0 0 4px rgba(30, 58, 138, 0.1);
 }
 
-/* Botón de Enviar adaptado a tu estilo institucional */
+/* Botón estilizado acorde a la barra del menú */
 .boton-enviar {
-    background-color: var(--primary);
+    background-color: var(--primary-accent);
     color: #ffffff;
     border: none;
     padding: 14px 24px;
@@ -411,17 +400,20 @@ body {
 }
 
 .boton-enviar:hover {
-    background-color: #1d4ed8;
+    background-color: #2563eb;
 }
 
 .boton-enviar:active {
     transform: scale(0.98);
 }
 
-/* Ajuste móvil */
+/* ==========================================
+   📱 RESPONSIVE (MÓVILES)
+   ========================================== */
 @media (max-width: 900px) {
-    .boton-enviar {
-        width: 100%; /* Botón ancho completo en celulares */
-    }
+    .dashboard-sidebar { display: none; }
+    .dashboard-layout { margin-left: 0; padding: 20px; }
+    .tablero-grid { grid-template-columns: 1fr; }
+    .item-documento { flex-direction: column; text-align: center; }
+    .boton-enviar { width: 100%; }
 }
-
