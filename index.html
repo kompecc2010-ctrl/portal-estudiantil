@@ -7,23 +7,21 @@
     <!-- Importación de fuente premium para estilo Dashboard -->
     <link rel="preconnect" href="https://googleapis.com">
     <link rel="preconnect" href="https://gstatic.com" crossorigin>
-    <link href="https://googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Vinculamos tu archivo estilo.css -->
     <link rel="stylesheet" href="estilo.css">
 </head>
 <body>
 
     <!-- DISEÑO DASHBOARD: Menú Lateral Fijo  -->
     <aside class="dashboard-sidebar">
-      
-<div class="sidebar-marca">
-    <!-- nombre exacto de tu imagen con su extensión (.png, .jpg, etc.) -->
-    <img src="./fotoclase.jpeg" alt="Logo de la Unidad Educativa Jambeli" class="logo-instituto-img">
-    <div class="marca-texto">
-        <h2>Jambeli</h2>
-        <span>Página Estudiantil</span>
-    </div>
-</div>
-
+        <div class="sidebar-marca">
+            <img src="./fotoclase.jpeg" alt="Logo de la Unidad Educativa Jambeli" class="logo-instituto-img">
+            <div class="marca-texto">
+                <h2>Jambeli</h2>
+                <span>Página Estudiantil</span>
+            </div>
+        </div>
 
         <nav class="sidebar-menu">
             <ul>
@@ -52,10 +50,10 @@
 
         <main class="dashboard-contenido">
             
-            <!-- REJILLA PRINCIPAL DE COMPONENTES -->
+            <!-- 🖼️ REJILLA DE COLUMNAS (NOTICIAS EN PARALELO) -->
             <div class="tablero-grid">
                 
-                <!-- BLOQUE GRANDE: NOTICIAS SEMANALES -->
+                <!-- BLOQUE PRINCIPAL: NOTICIAS SEMANALES -->
                 <section id="noticias" class="tarjeta-tablero bloque-principal">
                     <h2 class="titulo-bloque">Noticias Semanales</h2>
                     <div class="contenedor-carrusel">
@@ -67,7 +65,7 @@
                                     <h3>¡IMPORTANTE! Cambio en Fechas de Exámenes</h3>
                                     <span class="etiqueta-noticia urgente">Urgente</span>
                                 </div>
-                                <p class="fecha-noticia"> Publicado de forma reciente</p>
+                                <p class="fecha-noticia">Publicado de forma reciente</p>
                                 <p>Se han modificado oficialmente los horarios de las evaluaciones del segundo trimestre. Por favor, descarguen el nuevo cronograma en PDF en la sección de recursos.</p>
                             </div>
 
@@ -95,49 +93,50 @@
                     </div>
                 </section>
 
+            </div> <!-- ¡AQUÍ CERRAMOS EL TABLERO-GRID! Esto obliga a lo que sigue a posicionarse abajo ocupando todo el ancho -->
 
+            <!-- ==========================================
+               📺 SECCIÓN DE VIDEOS (ABAJO EN ANCHO COMPLETO)
+               ========================================== -->
+            <section class="tarjeta-tablero seccion-completa" style="margin-top: 24px;">
+                <h2 class="titulo-bloque">Videos de Actividades</h2>
+                <p class="subtitulo-bloque">Desliza para ver los últimos momentos y proyectos de nuestra comunidad estudiantil.</p>
 
-             <section class="tarjeta-tablero seccion-completa">
-            <h2 class="titulo-bloque">Videos de Actividades</h2>
-            <p class="subtitulo-bloque">Desliza para ver los últimos momentos y proyectos de nuestra comunidad estudiantil.</p>
-
-            <div class="contenedor-carrusel-videos">
-                <div class="carrusel-videos-deslizable" id="carruselVideos">
-                    
-                    <!-- VIDEO 1: YOUTUBE -->
-                    <div class="item-video-carrusel">
-                        <div class="contenedor-video-reproductor">
-                            <iframe src="https://youtube.com/embed/FDJZiBfPdXE" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                <div class="contenedor-carrusel-videos">
+                    <div class="carrusel-videos-deslizable" id="carruselVideos">
+                        
+                        <!-- VIDEO 1: YOUTUBE -->
+                        <div class="item-video-carrusel">
+                            <div class="contenedor-video-reproductor">
+                                <iframe src="https://youtube.com/embed/FDJZiBfPdXE" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                            </div>
+                            <div class="info-video-carrusel">
+                                <span class="etiqueta-red youtube">YouTube</span>
+                                <h4>Feria de Ciencias y Tecnología 2026</h4>
+                                <p>Resumen completo de los proyectos de robótica presentados por bachillerato.</p>
+                            </div>
                         </div>
-                        <div class="info-video-carrusel">
-                            <span class="etiqueta-red youtube">YouTube</span>
-                            <h4>Feria de Ciencias y Tecnología 2026</h4>
-                            <p>Resumen completo de los proyectos de robótica presentados por bachillerato.</p>
+
+                        <!-- VIDEO 2: TIKTOK OFICIAL ACTIVADO -->
+                        <div class="item-video-carrusel">
+                            <div class="contenedor-video-reproductor">
+                                <blockquote class="tiktok-embed" cite="https://tiktok.com" data-video-id="7684575726447758613" style="max-width: 605px; min-width: 325px; width:100%; height:100%; position:absolute; top:0; left:0; margin:0;">
+                                    <section></section>
+                                </blockquote>
+                            </div>
+                            <div class="info-video-carrusel">
+                                <span class="etiqueta-red tiktok">TikTok</span>
+                                <h4>¡Talento Jambeli en Acción!</h4>
+                                <p>Nuestros estudiantes comparten sus mejores proyectos en la plataforma oficial.</p>
+                            </div>
                         </div>
+
                     </div>
-
-                    <!-- VIDEO 2: TIKTOK -->
-                    <div class="item-video-carrusel">
-                        <div class="contenedor-video-reproductor">
-                            <iframe src="https://tiktok.com//embed/v2/7684575726447758613" allowfullscreen scrolling="no" allow="encrypted-media;"></iframe>
-                        </div>
-                        <div class="info-video-carrusel">
-                            <span class="etiqueta-red tiktok"> TikTok</span>
-                            <h4>¡Talento Jambeli en 60 segundos!</h4>
-                            <p>Nuestros estudiantes comparten su experiencia en el taller de desarrollo web.</p>
-                        </div>
-                    </div>
-
                 </div>
-            </div>
-        </section>
-
-
-
-
+            </section>
             
             <!-- BLOQUE: MATERIAL DE ESTUDIO (RECURSOS PDF) -->
-            <section id="recursos" class="tarjeta-tablero seccion-completa">
+            <section id="recursos" class="tarjeta-tablero seccion-completa" style="margin-top: 24px;">
                 <h2 class="titulo-bloque">Material de Estudio y Recursos PDF</h2>
                 <p class="subtitulo-bloque">Haz clic en los botones para abrir los documentos en una nueva pestaña o guardarlos en tu dispositivo:</p>
                 
@@ -160,59 +159,25 @@
                             <span>Formato: PDF Educativo | Material de apoyo</span>
                         </div>
                         <div class="botones-doc">
-                            <a href="documentos/Estudiantes.pdf" target="_blank" class="boton-accion ver">Ver Online</a>
-                            <a href="documentos/Estudiantes.pdf" download class="boton-accion descargar">Descargar</a>
+                            <a href="documentos/Guia_Basica_GitHub_Estudiantes.pdf" target="_blank" class="boton-accion ver">Ver Online</a>
+                            <a href="documentos/Guia_Basica_GitHub_Estudiantes.pdf" download class="boton-accion descargar">Descargar</a>
                         </div>
                     </li>
                 </ul>
             </section>
 
-            <!-- BLOQUE: FOTOS DE ACTIVIDADES -->
-            <section id="galeria" class="tarjeta-tablero seccion-completa">
-                <h2 class="titulo-bloque">Fotos de Actividades</h2>
-                <p class="subtitulo-bloque">Un registro visual de nuestros proyectos estudiantiles:</p>
-                
-                <div class="cuadricula-galeria">
-                    <!-- Foto 1 -->
-                    <div class="tarjeta-foto">
-                        <div class="contenedor-imagen">
-                            <img src="imagenes/fotoclase.jpeg" alt="Estudios">
-                        </div>
-                        <div class="info-foto">
-                            <h4>Clases de Desarrollo Web</h4>
-                            <p>Estudiantes practicando código HTML y CSS.</p>
-                        </div>
-                    </div>
-
-                    <!-- Foto 2 -->
-                    <div class="tarjeta-foto">
-                        <div class="contenedor-imagen">
-                            <img src="imagenes/fotogrupo.jpg" alt="Grupo">
-                        </div>
-                        <div class="info-foto">
-                            <h4>Proyectos Grupales</h4>
-                            <p>Diseño y planeación de la estructura diseño web.</p>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
         </main>
     </div>
 
-    <!-- SCRIPT DE MOVIMIENTO AUTOMÁTICO (CARRUSEL) -->
+    <!-- SCRIPT DE TIKTOK (OBLIGATORIO PARA QUE SE VEA EL EMBED) -->
+    <script async src="https://tiktok.com"></script>
+
+    <!-- AUTOMATIZACIÓN DE AMBOS CARRUSELES (NOTICIAS Y VIDEOS) -->
     <script>
-        const carrusel = document.getElementById('carruselNoticias');
-        let indiceActual = 0;
-
-        function moverCarrusel() {
-            const totalNoticias = carrusel.children.length;
-            indiceActual = (indiceActual + 1) % totalNoticias;
-            carrusel.style.transform = `translateX(-${indiceActual * 100}%)`;
-        }
-
-        setInterval(moverCarrusel, 4000);
-    </script>
-
-</body>
-</html>
+        // 1. Animación Carrusel Noticias
+        const carruselN = document.getElementById('carruselNoticias');
+        const itemsN = document.querySelectorAll('.tarjeta-noticia-carrusel');
+        let indiceN = 0;
+        function moverNoticias() {
+            indiceN++;
+            if (indiceN >= itemsN.length) indiceN = 0;
