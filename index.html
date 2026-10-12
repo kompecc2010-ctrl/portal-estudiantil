@@ -4,16 +4,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Unidad Educativa Particular Jambeli</title>
-    <!-- Importación de fuente premium para estilo Dashboard -->
-    <link rel="preconnect" href="https://googleapis.com">
-    <link rel="preconnect" href="https://gstatic.com" crossorigin>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <!-- Vinculamos tu archivo estilo.css -->
+
     <link rel="stylesheet" href="estilo.css">
 </head>
 <body>
 
-    <!-- DISEÑO DASHBOARD: Menú Lateral Fijo  -->
     <aside class="dashboard-sidebar">
         <div class="sidebar-marca">
             <img src="./fotoclase.jpeg" alt="Logo de la Unidad Educativa Jambeli" class="logo-instituto-img">
@@ -32,15 +31,14 @@
                 <li><a href="contacto.html" class="menu-destacado"><span>✉️</span> Contacto</a></li>
             </ul>
         </nav>
+
         <div class="sidebar-footer">
             <p>&copy; 2026 Jambeli</p>
         </div>
     </aside>
 
-    <!-- Contenedor Principal del Dashboard -->
     <div class="dashboard-layout">
-        
-        <!-- Cabecera Superior -->
+
         <header id="inicio" class="dashboard-header">
             <div class="header-saludo">
                 <h1>Unidad Educativa Particular Jambeli</h1>
@@ -49,17 +47,18 @@
         </header>
 
         <main class="dashboard-contenido">
-            
-            <!-- 🖼️ REJILLA DE COLUMNAS (NOTICIAS EN PARALELO) -->
+
+            <!-- ==========================================
+                 📰 NOTICIAS
+                 ========================================== -->
             <div class="tablero-grid">
-                
-                <!-- BLOQUE PRINCIPAL: NOTICIAS SEMANALES -->
+
                 <section id="noticias" class="tarjeta-tablero bloque-principal">
                     <h2 class="titulo-bloque">Noticias Semanales</h2>
+
                     <div class="contenedor-carrusel">
                         <div class="carrusel-deslizable" id="carruselNoticias">
-                            
-                            <!-- Noticia 1 -->
+
                             <div class="tarjeta-noticia-carrusel urgente">
                                 <div class="noticia-cabecera">
                                     <h3>¡IMPORTANTE! Cambio en Fechas de Exámenes</h3>
@@ -69,7 +68,6 @@
                                 <p>Se han modificado oficialmente los horarios de las evaluaciones del segundo trimestre. Por favor, descarguen el nuevo cronograma en PDF en la sección de recursos.</p>
                             </div>
 
-                            <!-- Noticia 2 -->
                             <div class="tarjeta-noticia-carrusel">
                                 <div class="noticia-cabecera">
                                     <h3>Abiertas las Inscripciones para la materia de Programación</h3>
@@ -79,7 +77,6 @@
                                 <p>Ya puedes registrarte en el taller práctico. Las clases serán en el laboratorio de informática.</p>
                             </div>
 
-                            <!-- Noticia 3 -->
                             <div class="tarjeta-noticia-carrusel">
                                 <div class="noticia-cabecera">
                                     <h3>Entrega de Boletines de calificaciones</h3>
@@ -93,23 +90,30 @@
                     </div>
                 </section>
 
-            </div> <!-- ¡AQUÍ CERRAMOS EL TABLERO-GRID! Esto obliga a lo que sigue a posicionarse abajo ocupando todo el ancho -->
+            </div>
 
             <!-- ==========================================
-               📺 SECCIÓN DE VIDEOS (ABAJO EN ANCHO COMPLETO)
-               ========================================== -->
-            <section class="tarjeta-tablero seccion-completa" style="margin-top: 24px;">
+                 📺 VIDEOS: DEBAJO DE NOTICIAS
+                 ========================================== -->
+            <section class="tarjeta-tablero seccion-completa seccion-videos">
                 <h2 class="titulo-bloque">Videos de Actividades</h2>
                 <p class="subtitulo-bloque">Desliza para ver los últimos momentos y proyectos de nuestra comunidad estudiantil.</p>
 
-                <div class="contenedor-carrusel-videos">
+                <div class="contenedor-carrusel-videos" id="contenedorVideos">
                     <div class="carrusel-videos-deslizable" id="carruselVideos">
-                        
+
                         <!-- VIDEO 1: YOUTUBE -->
                         <div class="item-video-carrusel">
                             <div class="contenedor-video-reproductor">
-                                <iframe src="https://youtube.com/embed/FDJZiBfPdXE" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                                <iframe
+                                    src="https://www.youtube.com/embed/FDJZiBfPdXE"
+                                    title="Feria de Ciencias y Tecnología 2026"
+                                    loading="lazy"
+                                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                                    allowfullscreen>
+                                </iframe>
                             </div>
+
                             <div class="info-video-carrusel">
                                 <span class="etiqueta-red youtube">YouTube</span>
                                 <h4>Feria de Ciencias y Tecnología 2026</h4>
@@ -117,13 +121,17 @@
                             </div>
                         </div>
 
-                        <!-- VIDEO 2: TIKTOK OFICIAL ACTIVADO -->
+                        <!-- VIDEO 2: TIKTOK -->
                         <div class="item-video-carrusel">
                             <div class="contenedor-video-reproductor">
-                                <blockquote class="tiktok-embed" cite="https://tiktok.com" data-video-id="7684575726447758613" style="max-width: 605px; min-width: 325px; width:100%; height:100%; position:absolute; top:0; left:0; margin:0;">
-                                    <section></section>
-                                </blockquote>
+                                <iframe
+                                    src="https://www.tiktok.com/player/v1/7684575726447758613?description=1&music_info=1"
+                                    title="TikTok - ¡Talento Jambeli en Acción!"
+                                    loading="lazy"
+                                    allow="encrypted-media;">
+                                </iframe>
                             </div>
+
                             <div class="info-video-carrusel">
                                 <span class="etiqueta-red tiktok">TikTok</span>
                                 <h4>¡Talento Jambeli en Acción!</h4>
@@ -133,51 +141,209 @@
 
                     </div>
                 </div>
+
+                <div class="controles-carrusel">
+                    <button type="button" class="boton-carrusel" id="videoAnterior" aria-label="Video anterior">‹</button>
+
+                    <div class="puntos-carrusel" id="puntosVideos" aria-label="Seleccionar video"></div>
+
+                    <button type="button" class="boton-carrusel" id="videoSiguiente" aria-label="Video siguiente">›</button>
+                </div>
             </section>
-            
-            <!-- BLOQUE: MATERIAL DE ESTUDIO (RECURSOS PDF) -->
-            <section id="recursos" class="tarjeta-tablero seccion-completa" style="margin-top: 24px;">
+
+            <!-- ==========================================
+                 📂 RECURSOS PDF
+                 ========================================== -->
+            <section id="recursos" class="tarjeta-tablero seccion-completa">
                 <h2 class="titulo-bloque">Material de Estudio y Recursos PDF</h2>
                 <p class="subtitulo-bloque">Haz clic en los botones para abrir los documentos en una nueva pestaña o guardarlos en tu dispositivo:</p>
-                
+
                 <ul class="lista-documentos">
+
                     <li class="item-documento">
                         <span class="icono-doc">📕</span>
+
                         <div class="info-doc">
                             <strong>Cronograma_Examenes_2do_Trimestre.pdf</strong>
                             <span>Formato: PDF Seguro | Actualizado recientemente</span>
                         </div>
+
                         <div class="botones-doc">
-                            <a href="documentos/Cronograma_Examenes_2do_Trimestre.pdf" target="_blank" class="boton-accion ver">Ver Online</a>
+                            <a href="documentos/Cronograma_Examenes_2do_Trimestre.pdf" target="_blank" rel="noopener" class="boton-accion ver">Ver Online</a>
                             <a href="documentos/Cronograma_Examenes_2do_Trimestre.pdf" download class="boton-accion descargar">Descargar</a>
                         </div>
                     </li>
+
                     <li class="item-documento">
                         <span class="icono-doc">📕</span>
+
                         <div class="info-doc">
                             <strong>Guia_Basica_GitHub_Estudiantes.pdf</strong>
                             <span>Formato: PDF Educativo | Material de apoyo</span>
                         </div>
+
                         <div class="botones-doc">
-                            <a href="documentos/Guia_Basica_GitHub_Estudiantes.pdf" target="_blank" class="boton-accion ver">Ver Online</a>
+                            <a href="documentos/Guia_Basica_GitHub_Estudiantes.pdf" target="_blank" rel="noopener" class="boton-accion ver">Ver Online</a>
                             <a href="documentos/Guia_Basica_GitHub_Estudiantes.pdf" download class="boton-accion descargar">Descargar</a>
                         </div>
                     </li>
+
                 </ul>
+            </section>
+
+            <!-- ==========================================
+                 📸 GALERÍA DE IMÁGENES
+                 ========================================== -->
+            <section id="galeria" class="tarjeta-tablero seccion-completa">
+                <h2 class="titulo-bloque">Fotos de Actividades</h2>
+                <p class="subtitulo-bloque">Un registro visual de nuestros proyectos estudiantiles:</p>
+
+                <div class="cuadricula-galeria">
+
+                    <div class="tarjeta-foto">
+                        <div class="contenedor-imagen">
+                            <img src="imagenes/fotoclase.jpeg" alt="Estudiantes en clases de desarrollo web">
+                        </div>
+                        <div class="info-foto">
+                            <h4>Clases de Desarrollo Web</h4>
+                            <p>Estudiantes practicando código HTML y CSS.</p>
+                        </div>
+                    </div>
+
+                    <div class="tarjeta-foto">
+                        <div class="contenedor-imagen">
+                            <img src="imagenes/fotogrupo.jpg" alt="Grupo de estudiantes trabajando">
+                        </div>
+                        <div class="info-foto">
+                            <h4>Proyectos Grupales</h4>
+                            <p>Diseño y planeación de la estructura diseño web.</p>
+                        </div>
+                    </div>
+
+                </div>
             </section>
 
         </main>
     </div>
 
-    <!-- SCRIPT DE TIKTOK (OBLIGATORIO PARA QUE SE VEA EL EMBED) -->
-    <script async src="https://tiktok.com"></script>
+    <!-- TikTok necesita su script oficial de embed -->
+    <script async src="https://www.tiktok.com/embed.js"></script>
 
-    <!-- AUTOMATIZACIÓN DE AMBOS CARRUSELES (NOTICIAS Y VIDEOS) -->
     <script>
-        // 1. Animación Carrusel Noticias
-        const carruselN = document.getElementById('carruselNoticias');
-        const itemsN = document.querySelectorAll('.tarjeta-noticia-carrusel');
-        let indiceN = 0;
-        function moverNoticias() {
-            indiceN++;
-            if (indiceN >= itemsN.length) indiceN = 0;
+        document.addEventListener("DOMContentLoaded", function () {
+
+            /* ==========================================
+               📰 CARRUSEL AUTOMÁTICO DE NOTICIAS
+               ========================================== */
+            const carruselN = document.getElementById("carruselNoticias");
+            const itemsN = document.querySelectorAll(".tarjeta-noticia-carrusel");
+            let indiceN = 0;
+
+            function moverNoticias() {
+                if (!carruselN || itemsN.length === 0) return;
+
+                indiceN = (indiceN + 1) % itemsN.length;
+                carruselN.style.transform = "translateX(-" + (indiceN * 100) + "%)";
+            }
+
+            if (itemsN.length > 1) {
+                setInterval(moverNoticias, 6000);
+            }
+
+            /* ==========================================
+               📺 CARRUSEL AUTOMÁTICO DE VIDEOS
+               ========================================== */
+            const carruselV = document.getElementById("carruselVideos");
+            const contenedorV = document.getElementById("contenedorVideos");
+            const itemsV = document.querySelectorAll(".item-video-carrusel");
+            const puntosV = document.getElementById("puntosVideos");
+            const botonAnterior = document.getElementById("videoAnterior");
+            const botonSiguiente = document.getElementById("videoSiguiente");
+
+            let indiceV = 0;
+            let intervaloVideos;
+
+            if (carruselV && itemsV.length > 0) {
+
+                /* Crear los puntos automáticamente */
+                itemsV.forEach(function (_, i) {
+                    const punto = document.createElement("button");
+                    punto.type = "button";
+                    punto.className = "punto-carrusel" + (i === 0 ? " activo" : "");
+                    punto.setAttribute("aria-label", "Mostrar video " + (i + 1));
+
+                    punto.addEventListener("click", function () {
+                        mostrarVideo(i);
+                        reiniciarIntervalo();
+                    });
+
+                    puntosV.appendChild(punto);
+                });
+
+                function mostrarVideo(indice) {
+                    indiceV = (indice + itemsV.length) % itemsV.length;
+
+                    carruselV.style.transform =
+                        "translateX(-" + (indiceV * 100) + "%)";
+
+                    const puntos = puntosV.querySelectorAll(".punto-carrusel");
+
+                    puntos.forEach(function (punto, i) {
+                        punto.classList.toggle("activo", i === indiceV);
+                    });
+                }
+
+                function siguienteVideo() {
+                    mostrarVideo(indiceV + 1);
+                }
+
+                function anteriorVideo() {
+                    mostrarVideo(indiceV - 1);
+                }
+
+                function iniciarIntervalo() {
+                    intervaloVideos = setInterval(siguienteVideo, 7000);
+                }
+
+                function detenerIntervalo() {
+                    clearInterval(intervaloVideos);
+                }
+
+                function reiniciarIntervalo() {
+                    detenerIntervalo();
+                    iniciarIntervalo();
+                }
+
+                botonSiguiente.addEventListener("click", function () {
+                    siguienteVideo();
+                    reiniciarIntervalo();
+                });
+
+                botonAnterior.addEventListener("click", function () {
+                    anteriorVideo();
+                    reiniciarIntervalo();
+                });
+
+                /* Al colocar el mouse encima, se pausa */
+                contenedorV.addEventListener("mouseenter", detenerIntervalo);
+                contenedorV.addEventListener("mouseleave", iniciarIntervalo);
+
+                /* En móviles no dependemos del hover */
+                document.addEventListener("visibilitychange", function () {
+                    if (document.hidden) {
+                        detenerIntervalo();
+                    } else {
+                        reiniciarIntervalo();
+                    }
+                });
+
+                /* Iniciar movimiento automático */
+                if (itemsV.length > 1) {
+                    iniciarIntervalo();
+                }
+            }
+        });
+    </script>
+
+</body>
+</html>
