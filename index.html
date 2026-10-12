@@ -49,7 +49,7 @@
         <main class="dashboard-contenido">
 
             <!-- ==========================================
-                 NOTICIAS
+                 📰 NOTICIAS
                  ========================================== -->
             <div class="tablero-grid">
 
@@ -93,7 +93,7 @@
             </div>
 
             <!-- ==========================================
-                 VIDEOS: DEBAJO DE NOTICIAS
+                 📺 VIDEOS: DEBAJO DE NOTICIAS
                  ========================================== -->
             <section class="tarjeta-tablero seccion-completa seccion-videos">
                 <h2 class="titulo-bloque">Videos de Actividades</h2>
@@ -106,7 +106,7 @@
                         <div class="item-video-carrusel">
                             <div class="contenedor-video-reproductor">
                                 <iframe
-                                    src="https://www.youtube.com/embed/QGdEfeektgw"
+                                    src="https://www.youtube.com/embed/FDJZiBfPdXE"
                                     title="Feria de Ciencias y Tecnología 2026"
                                     loading="lazy"
                                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
@@ -152,7 +152,7 @@
             </section>
 
             <!-- ==========================================
-                 RECURSOS PDF
+                 📂 RECURSOS PDF
                  ========================================== -->
             <section id="recursos" class="tarjeta-tablero seccion-completa">
                 <h2 class="titulo-bloque">Material de Estudio y Recursos PDF</h2>
@@ -178,13 +178,13 @@
                         <span class="icono-doc">📕</span>
 
                         <div class="info-doc">
-                            <strong>Estudiantes.pdf</strong>
+                            <strong>Guia_Basica_GitHub_Estudiantes.pdf</strong>
                             <span>Formato: PDF Educativo | Material de apoyo</span>
                         </div>
 
                         <div class="botones-doc">
-                            <a href="documentos/Estudiantes.pdf" target="_blank" rel="noopener" class="boton-accion ver">Ver Online</a>
-                            <a href="documentos/Estudiantes.pdf" download class="boton-accion descargar">Descargar</a>
+                            <a href="documentos/Guia_Basica_GitHub_Estudiantes.pdf" target="_blank" rel="noopener" class="boton-accion ver">Ver Online</a>
+                            <a href="documentos/Guia_Basica_GitHub_Estudiantes.pdf" download class="boton-accion descargar">Descargar</a>
                         </div>
                     </li>
 
@@ -192,36 +192,63 @@
             </section>
 
             <!-- ==========================================
-                 GALERÍA DE IMÁGENES
-                 ========================================== -->
-            <section id="galeria" class="tarjeta-tablero seccion-completa">
-                <h2 class="titulo-bloque">Fotos de Actividades</h2>
-                <p class="subtitulo-bloque">Un registro visual de nuestros proyectos estudiantiles:</p>
+     📸 GALERÍA DE IMÁGENES
+     ========================================== -->
+<section id="galeria" class="tarjeta-tablero seccion-completa">
+    <h2 class="titulo-bloque">Galería de Actividades</h2>
+    <p class="subtitulo-bloque">Explora nuestras actividades, proyectos y momentos especiales. Haz clic en una imagen para verla en pantalla completa.</p>
 
-                <div class="cuadricula-galeria">
+    <div class="albumes-galeria">
+        <button type="button" class="tarjeta-album activo" data-album="actividades">
+            <span class="icono-album">📚</span>
+            <span><strong>Actividades Académicas</strong><small>Clases y proyectos estudiantiles</small></span>
+        </button>
+        <button type="button" class="tarjeta-album" data-album="eventos">
+            <span class="icono-album">🎉</span>
+            <span><strong>Eventos</strong><small>Celebraciones y actividades</small></span>
+        </button>
+        <button type="button" class="tarjeta-album" data-album="deportes">
+            <span class="icono-album">⚽</span>
+            <span><strong>Deportes</strong><small>Jornadas y competencias</small></span>
+        </button>
+        <button type="button" class="tarjeta-album" data-album="graduacion">
+            <span class="icono-album">🎓</span>
+            <span><strong>Graduación</strong><small>Momentos especiales</small></span>
+        </button>
+    </div>
 
-                    <div class="tarjeta-foto">
-                        <div class="contenedor-imagen">
-                            <img src="imagenes/fotoclase.jpeg" alt="Estudiantes en clases de desarrollo web">
-                        </div>
-                        <div class="info-foto">
-                            <h4>Clases de Desarrollo Web</h4>
-                            <p>Estudiantes practicando código HTML y CSS.</p>
-                        </div>
-                    </div>
+    <div class="galeria-carrusel" id="galeriaCarrusel">
+        <button type="button" class="galeria-flecha galeria-anterior" id="galeriaAnterior" aria-label="Imagen anterior">‹</button>
+        <div class="galeria-ventana">
+            <div class="galeria-pista" id="galeriaPista">
+                <!-- Las fotografías se cargan automáticamente desde las carpetas de GitHub. -->
+            </div>
+        </div>
+        <button type="button" class="galeria-flecha galeria-siguiente" id="galeriaSiguiente" aria-label="Imagen siguiente">›</button>
+    </div>
 
-                    <div class="tarjeta-foto">
-                        <div class="contenedor-imagen">
-                            <img src="imagenes/fotogrupo.jpg" alt="Grupo de estudiantes trabajando">
-                        </div>
-                        <div class="info-foto">
-                            <h4>Proyectos Grupales</h4>
-                            <p>Diseño y planeación de la estructura diseño web.</p>
-                        </div>
-                    </div>
+    <div class="galeria-controles">
+        <div class="galeria-contador" id="galeriaContador">1 / 2</div>
+        <div class="galeria-puntos" id="galeriaPuntos"></div>
+    </div>
+    <p class="ayuda-galeria">Puedes usar las flechas o hacer clic sobre una fotografía para ampliarla.</p>
+</section>
 
-                </div>
-            </section>
+<div class="visor-galeria" id="visorGaleria" aria-hidden="true">
+    <div class="visor-fondo" id="visorFondo"></div>
+    <button type="button" class="visor-cerrar" id="visorCerrar" aria-label="Cerrar">×</button>
+    <button type="button" class="visor-flecha visor-anterior" id="visorAnterior" aria-label="Imagen anterior">‹</button>
+    <div class="visor-contenido">
+        <img id="visorImagen" src="" alt="">
+        <div class="visor-informacion">
+            <span id="visorAlbum"></span>
+            <h3 id="visorTitulo"></h3>
+            <p id="visorDescripcion"></p>
+            <small id="visorContador"></small>
+        </div>
+    </div>
+    <button type="button" class="visor-flecha visor-siguiente" id="visorSiguiente" aria-label="Imagen siguiente">›</button>
+</div>
 
         </main>
     </div>
@@ -233,7 +260,7 @@
         document.addEventListener("DOMContentLoaded", function () {
 
             /* ==========================================
-               CARRUSEL AUTOMÁTICO DE NOTICIAS
+               📰 CARRUSEL AUTOMÁTICO DE NOTICIAS
                ========================================== */
             const carruselN = document.getElementById("carruselNoticias");
             const itemsN = document.querySelectorAll(".tarjeta-noticia-carrusel");
@@ -251,7 +278,7 @@
             }
 
             /* ==========================================
-               CARRUSEL AUTOMÁTICO DE VIDEOS
+               📺 CARRUSEL AUTOMÁTICO DE VIDEOS
                ========================================== */
             const carruselV = document.getElementById("carruselVideos");
             const contenedorV = document.getElementById("contenedorVideos");
@@ -342,6 +369,252 @@
                     iniciarIntervalo();
                 }
             }
+            /* ==========================================
+               📸 GALERÍA AUTOMÁTICA DESDE GITHUB
+               Solo hay que subir las fotos a sus carpetas.
+               ========================================== */
+            const OWNER = "kompecc2010-ctrl";
+            const REPO = "portal-estudiantil";
+            const RAMA = "main";
+            const RUTA_BASE = "imagenes";
+            const extensionesImagen = /\.(jpe?g|png|gif|webp|avif|bmp)$/i;
+
+            const nombresAlbum = {
+                actividades: "Actividades Académicas",
+                eventos: "Eventos",
+                deportes: "Deportes",
+                graduacion: "Graduación"
+            };
+
+            const iconoVacio = {
+                actividades: "📚", eventos: "🎉", deportes: "⚽", graduacion: "🎓"
+            };
+
+            const albumes = document.querySelectorAll(".tarjeta-album");
+            const pista = document.getElementById("galeriaPista");
+            const botonAnteriorGaleria = document.getElementById("galeriaAnterior");
+            const botonSiguienteGaleria = document.getElementById("galeriaSiguiente");
+            const galeriaContador = document.getElementById("galeriaContador");
+            const galeriaPuntos = document.getElementById("galeriaPuntos");
+            const visor = document.getElementById("visorGaleria");
+            const visorImagen = document.getElementById("visorImagen");
+            const visorAlbum = document.getElementById("visorAlbum");
+            const visorTitulo = document.getElementById("visorTitulo");
+            const visorDescripcion = document.getElementById("visorDescripcion");
+            const visorContador = document.getElementById("visorContador");
+
+            let albumActual = "actividades";
+            let fotosVisibles = [];
+            let indiceGaleria = 0;
+            let indiceVisor = 0;
+            let cacheAlbumes = {};
+
+            function textoBonito(nombreArchivo) {
+                return nombreArchivo
+                    .replace(/\.[^.]+$/, "")
+                    .replace(/[_-]+/g, " ")
+                    .replace(/\s+/g, " ")
+                    .trim()
+                    .replace(/\b\w/g, letra => letra.toUpperCase()) || "Fotografía escolar";
+            }
+
+            function urlRaw(ruta) {
+                return "https://raw.githubusercontent.com/" + OWNER + "/" + REPO + "/" + RAMA + "/" +
+                    ruta.split("/").map(encodeURIComponent).join("/");
+            }
+
+            async function listarDirectorio(ruta) {
+                const endpoint = "https://api.github.com/repos/" + OWNER + "/" + REPO +
+                    "/contents/" + ruta.split("/").map(encodeURIComponent).join("/") + "?ref=" + RAMA;
+                const respuesta = await fetch(endpoint, {
+                    headers: { "Accept": "application/vnd.github+json" }
+                });
+                if (respuesta.status === 404) return [];
+                if (!respuesta.ok) {
+                    throw new Error("GitHub respondió " + respuesta.status + " al consultar " + ruta);
+                }
+                const contenido = await respuesta.json();
+                return Array.isArray(contenido) ? contenido : [];
+            }
+
+            async function cargarAlbum(nombre) {
+                if (cacheAlbumes[nombre]) return cacheAlbumes[nombre];
+
+                const rutaCarpeta = RUTA_BASE + "/" + nombre;
+                let archivos = [];
+                try {
+                    archivos = await listarDirectorio(rutaCarpeta);
+                } catch (error) {
+                    console.error(error);
+                }
+
+                let imagenes = archivos
+                    .filter(archivo => archivo.type === "file" && extensionesImagen.test(archivo.name))
+                    .map(archivo => ({
+                        nombre: archivo.name,
+                        ruta: archivo.path,
+                        url: archivo.download_url || urlRaw(archivo.path),
+                        titulo: textoBonito(archivo.name)
+                    }));
+
+                // Compatibilidad con las dos fotos que ya estaban en imagenes/:
+                // se muestran dentro de Actividades Académicas si aún no hay fotos en esa carpeta.
+                if (nombre === "actividades" && imagenes.length === 0) {
+                    try {
+                        const raiz = await listarDirectorio(RUTA_BASE);
+                        imagenes = raiz
+                            .filter(archivo => archivo.type === "file" && extensionesImagen.test(archivo.name))
+                            .map(archivo => ({
+                                nombre: archivo.name,
+                                ruta: archivo.path,
+                                url: archivo.download_url || urlRaw(archivo.path),
+                                titulo: textoBonito(archivo.name)
+                            }));
+                    } catch (error) {
+                        console.error(error);
+                    }
+                }
+
+                cacheAlbumes[nombre] = imagenes;
+                return imagenes;
+            }
+
+            function crearTarjetaFoto(foto, album) {
+                const article = document.createElement("article");
+                article.className = "foto-galeria";
+                article.dataset.album = album;
+                article.dataset.full = foto.url;
+                article.dataset.title = foto.titulo;
+                article.dataset.description = "Fotografía de " + nombresAlbum[album] + ".";
+
+                const boton = document.createElement("button");
+                boton.type = "button";
+                boton.className = "foto-boton";
+                boton.setAttribute("aria-label", "Ampliar " + foto.titulo);
+
+                const img = document.createElement("img");
+                img.src = foto.url;
+                img.alt = foto.titulo + " — " + nombresAlbum[album];
+                img.loading = "lazy";
+                img.decoding = "async";
+                img.onerror = function () {
+                    fotosVisibles = fotosVisibles.filter(elemento => elemento !== foto);
+                    cacheAlbumes[album] = fotosVisibles;
+                    actualizarGaleria();
+                };
+
+                const ampliar = document.createElement("span");
+                ampliar.className = "indicador-ampliar";
+                ampliar.textContent = "⛶";
+                boton.append(img, ampliar);
+
+                const info = document.createElement("div");
+                info.className = "info-foto-carrusel";
+
+                const categoria = document.createElement("span");
+                categoria.textContent = nombresAlbum[album];
+
+                const titulo = document.createElement("h4");
+                titulo.textContent = foto.titulo;
+
+                const descripcion = document.createElement("p");
+                descripcion.textContent = "Fotografía de " + nombresAlbum[album] + ".";
+
+                info.append(categoria, titulo, descripcion);
+                article.append(boton, info);
+                boton.addEventListener("click", () => abrirVisor(fotosVisibles.indexOf(foto)));
+                return article;
+            }
+
+            function actualizarGaleria() {
+                pista.innerHTML = "";
+                fotosVisibles.forEach(foto => pista.appendChild(crearTarjetaFoto(foto, albumActual)));
+                galeriaPuntos.innerHTML = "";
+
+                fotosVisibles.forEach((_, i) => {
+                    const punto = document.createElement("button");
+                    punto.type = "button";
+                    punto.className = "punto-galeria" + (i === 0 ? " activo" : "");
+                    punto.setAttribute("aria-label", "Mostrar fotografía " + (i + 1));
+                    punto.addEventListener("click", () => mostrarFoto(i));
+                    galeriaPuntos.appendChild(punto);
+                });
+
+                if (fotosVisibles.length === 0) {
+                    const mensaje = document.createElement("div");
+                    mensaje.className = "info-foto-carrusel";
+                    mensaje.style.minWidth = "100%";
+                    mensaje.style.padding = "35px 20px";
+                    mensaje.style.textAlign = "center";
+                    mensaje.innerHTML = "<h4>Este álbum todavía no tiene fotografías</h4><p>Sube imágenes JPG, PNG o WEBP a la carpeta <strong>imagenes/" +
+                        albumActual + "/</strong> de GitHub. Cuando la página se actualice, aparecerán aquí.</p>";
+                    pista.appendChild(mensaje);
+                    galeriaContador.textContent = "0 / 0";
+                    return;
+                }
+                mostrarFoto(0);
+            }
+
+            function mostrarFoto(indice) {
+                if (!fotosVisibles.length) return;
+                indiceGaleria = (indice + fotosVisibles.length) % fotosVisibles.length;
+                const tarjetas = pista.querySelectorAll(".foto-galeria");
+                tarjetas.forEach((tarjeta, i) => tarjeta.classList.toggle("foto-activa", i === indiceGaleria));
+                galeriaContador.textContent = (indiceGaleria + 1) + " / " + fotosVisibles.length;
+                galeriaPuntos.querySelectorAll(".punto-galeria").forEach((punto, i) =>
+                    punto.classList.toggle("activo", i === indiceGaleria));
+                if (tarjetas[indiceGaleria]) {
+                    tarjetas[indiceGaleria].scrollIntoView({ behavior: "smooth", block: "nearest", inline: "center" });
+                }
+            }
+
+            async function seleccionarAlbum(nombre) {
+                albumActual = nombre;
+                indiceGaleria = 0;
+                albumes.forEach(boton => boton.classList.toggle("activo", boton.dataset.album === nombre));
+                pista.innerHTML = '<div class="info-foto-carrusel" style="min-width:100%;padding:30px;text-align:center">Cargando fotografías…</div>';
+                fotosVisibles = await cargarAlbum(nombre);
+                actualizarGaleria();
+            }
+
+            function abrirVisor(indice) {
+                if (!fotosVisibles.length) return;
+                indiceVisor = (indice + fotosVisibles.length) % fotosVisibles.length;
+                const foto = fotosVisibles[indiceVisor];
+                visorImagen.src = foto.url;
+                visorImagen.alt = foto.titulo;
+                visorAlbum.textContent = nombresAlbum[albumActual];
+                visorTitulo.textContent = foto.titulo;
+                visorDescripcion.textContent = "Fotografía de " + nombresAlbum[albumActual] + ".";
+                visorContador.textContent = (indiceVisor + 1) + " / " + fotosVisibles.length;
+                visor.classList.add("visible");
+                visor.setAttribute("aria-hidden", "false");
+                document.body.classList.add("visor-abierto");
+            }
+
+            function cerrarVisor() {
+                visor.classList.remove("visible");
+                visor.setAttribute("aria-hidden", "true");
+                document.body.classList.remove("visor-abierto");
+            }
+
+            albumes.forEach(boton => boton.addEventListener("click", () => seleccionarAlbum(boton.dataset.album)));
+            botonAnteriorGaleria.addEventListener("click", () => mostrarFoto(indiceGaleria - 1));
+            botonSiguienteGaleria.addEventListener("click", () => mostrarFoto(indiceGaleria + 1));
+            document.getElementById("visorCerrar").addEventListener("click", cerrarVisor);
+            document.getElementById("visorFondo").addEventListener("click", cerrarVisor);
+            document.getElementById("visorAnterior").addEventListener("click", () => abrirVisor(indiceVisor - 1));
+            document.getElementById("visorSiguiente").addEventListener("click", () => abrirVisor(indiceVisor + 1));
+
+            document.addEventListener("keydown", function (e) {
+                if (!visor.classList.contains("visible")) return;
+                if (e.key === "Escape") cerrarVisor();
+                if (e.key === "ArrowLeft") abrirVisor(indiceVisor - 1);
+                if (e.key === "ArrowRight") abrirVisor(indiceVisor + 1);
+            });
+
+            seleccionarAlbum("actividades");
+
         });
     </script>
 

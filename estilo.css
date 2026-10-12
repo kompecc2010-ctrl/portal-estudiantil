@@ -472,54 +472,68 @@ body {
 }
 
 /* ==========================================
-   📸 GALERÍA DE IMÁGENES
+   📸 GALERÍA PROFESIONAL DE IMÁGENES
    ========================================== */
-.cuadricula-galeria {
+.albumes-galeria {
     display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 20px;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 12px;
+    margin-bottom: 22px;
 }
+.tarjeta-album {
+    display: flex; align-items: center; gap: 10px; width: 100%;
+    padding: 14px; border: 1px solid var(--border); border-radius: var(--radius-md);
+    background: #fff; color: var(--text-main); text-align: left; cursor: pointer;
+    transition: all .25s ease;
+}
+.tarjeta-album:hover { transform: translateY(-2px); border-color: #bfdbfe; box-shadow: var(--shadow); }
+.tarjeta-album.activo { background: #eff6ff; border-color: var(--primary-accent); box-shadow: 0 0 0 2px rgba(30,58,138,.08); }
+.icono-album { font-size: 1.7rem; flex-shrink: 0; }
+.tarjeta-album strong, .tarjeta-album small { display: block; }
+.tarjeta-album strong { font-size: .88rem; color: var(--primary-accent); }
+.tarjeta-album small { margin-top: 3px; color: var(--text-muted); font-size: .72rem; }
 
-.tarjeta-foto {
-    overflow: hidden;
-    background-color: #ffffff;
-    border: 1px solid var(--border);
-    border-radius: var(--radius-md);
-}
+.galeria-carrusel { position: relative; display: flex; align-items: center; gap: 12px; }
+.galeria-ventana { width: 100%; overflow: hidden; border-radius: var(--radius-md); background: #0f172a; }
+.galeria-pista { display: flex; align-items: stretch; overflow-x: auto; scroll-behavior: smooth; scrollbar-width: none; }
+.galeria-pista::-webkit-scrollbar { display: none; }
+.foto-galeria { position: relative; min-width: 100%; display: flex; flex-direction: column; background: #fff; }
+.foto-boton { position: relative; display: block; width: 100%; height: min(58vw,520px); min-height: 300px; padding: 0; border: 0; background: #0f172a; cursor: zoom-in; overflow: hidden; }
+.foto-boton img { width: 100%; height: 100%; display: block; object-fit: cover; transition: transform .45s ease, filter .45s ease; }
+.foto-boton:hover img { transform: scale(1.035); filter: brightness(.88); }
+.indicador-ampliar { position: absolute; right: 18px; bottom: 18px; width: 42px; height: 42px; display: grid; place-items: center; border-radius: 50%; background: rgba(15,23,42,.72); color: #fff; font-size: 1.2rem; }
+.info-foto-carrusel { padding: 18px 22px 20px; border-top: 1px solid var(--border); }
+.info-foto-carrusel > span { display: inline-block; margin-bottom: 6px; color: var(--primary-accent); font-size: .72rem; font-weight: 700; text-transform: uppercase; letter-spacing: .04em; }
+.info-foto-carrusel h4 { color: var(--primary-accent); font-size: 1.12rem; margin-bottom: 5px; }
+.info-foto-carrusel p { color: var(--text-muted); font-size: .9rem; }
 
-.contenedor-imagen {
-    width: 100%;
-    height: 300px;
-    background-color: #e2e8f0;
-    overflow: hidden;
-}
+.galeria-flecha { width: 44px; height: 44px; flex: 0 0 44px; border: 1px solid var(--border); border-radius: 50%; background: #fff; color: var(--primary-accent); cursor: pointer; font-size: 1.8rem; line-height: 1; z-index: 2; box-shadow: var(--shadow); transition: all .2s ease; }
+.galeria-flecha:hover { background: var(--primary-accent); color: #fff; transform: scale(1.05); }
+.galeria-controles { display: flex; justify-content: center; align-items: center; gap: 18px; margin-top: 14px; }
+.galeria-contador { color: var(--text-muted); font-size: .8rem; min-width: 45px; text-align: center; }
+.galeria-puntos { display: flex; align-items: center; justify-content: center; gap: 7px; max-width: 55%; overflow: hidden; }
+.punto-galeria { width: 8px; height: 8px; padding: 0; border: 0; border-radius: 50%; background: #cbd5e1; cursor: pointer; flex-shrink: 0; transition: transform .2s ease, background-color .2s ease; }
+.punto-galeria.activo { background: var(--primary-accent); transform: scale(1.35); }
+.ayuda-galeria { margin-top: 12px; text-align: center; color: var(--text-muted); font-size: .78rem; }
 
-.contenedor-imagen img {
-    width: 100%;
-    height: 100%;
-    display: block;
-    object-fit: cover;
-    transition: transform 0.4s ease;
-}
-
-.tarjeta-foto:hover .contenedor-imagen img {
-    transform: scale(1.03);
-}
-
-.info-foto {
-    padding: 18px 20px;
-}
-
-.info-foto h4 {
-    color: var(--primary-accent);
-    font-size: 1.05rem;
-    margin-bottom: 5px;
-}
-
-.info-foto p {
-    color: var(--text-muted);
-    font-size: 0.9rem;
-}
+body.visor-abierto { overflow: hidden; }
+.visor-galeria { position: fixed; inset: 0; z-index: 1000; display: none; align-items: center; justify-content: center; padding: 40px 80px; }
+.visor-galeria.visible { display: flex; }
+.visor-fondo { position: absolute; inset: 0; background: rgba(2,6,23,.94); }
+.visor-contenido { position: relative; z-index: 2; width: min(1100px,90vw); max-height: 92vh; display: flex; flex-direction: column; align-items: center; }
+.visor-contenido img { width: auto; max-width: 100%; max-height: 72vh; object-fit: contain; border-radius: 10px; box-shadow: 0 20px 60px rgba(0,0,0,.45); }
+.visor-informacion { width: 100%; max-width: 900px; padding: 14px 4px 0; color: #fff; text-align: center; }
+.visor-informacion span { font-size: .72rem; text-transform: uppercase; letter-spacing: .06em; opacity: .7; }
+.visor-informacion h3 { margin-top: 4px; font-size: 1.15rem; }
+.visor-informacion p { margin-top: 4px; color: #cbd5e1; font-size: .88rem; }
+.visor-informacion small { display: block; margin-top: 6px; color: #94a3b8; }
+.visor-cerrar, .visor-flecha { position: absolute; z-index: 3; border: 0; cursor: pointer; color: #fff; background: rgba(255,255,255,.1); transition: background-color .2s ease, transform .2s ease; }
+.visor-cerrar:hover, .visor-flecha:hover { background: rgba(255,255,255,.22); transform: scale(1.05); }
+.visor-cerrar { top: 20px; right: 24px; width: 46px; height: 46px; border-radius: 50%; font-size: 2rem; line-height: 1; }
+.visor-flecha { top: 50%; transform: translateY(-50%); width: 52px; height: 52px; border-radius: 50%; font-size: 2rem; }
+.visor-flecha:hover { transform: translateY(-50%) scale(1.05); }
+.visor-anterior { left: 22px; }
+.visor-siguiente { right: 22px; }
 
 /* ==========================================
    📺 SECCIÓN DE VIDEO SIMPLE
@@ -629,13 +643,14 @@ body {
         grid-template-columns: 1fr;
     }
 
-    .cuadricula-galeria {
-        grid-template-columns: 1fr;
-    }
-
-    .contenedor-imagen {
-        height: 260px;
-    }
+    .albumes-galeria { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .foto-boton { height: 360px; }
+    .galeria-flecha { width: 38px; height: 38px; flex-basis: 38px; }
+    .visor-galeria { padding: 55px 12px 20px; }
+    .visor-contenido { width: 94vw; }
+    .visor-contenido img { max-height: 65vh; }
+    .visor-anterior { left: 8px; }
+    .visor-siguiente { right: 8px; }
 
     .item-documento {
         flex-direction: column;
@@ -655,6 +670,15 @@ body {
         align-items: flex-start;
         flex-direction: column;
     }
+    .albumes-galeria { grid-template-columns: 1fr; }
+    .galeria-carrusel { gap: 6px; }
+    .galeria-flecha { width: 34px; height: 34px; flex-basis: 34px; font-size: 1.4rem; }
+    .foto-boton { height: 250px; min-height: 0; }
+    .info-foto-carrusel { padding: 14px 16px; }
+    .galeria-puntos { display: none; }
+    .visor-cerrar { top: 10px; right: 10px; }
+    .visor-flecha { width: 40px; height: 40px; }
+    .visor-informacion h3 { font-size: 1rem; }
 }
 
 @media (max-width: 600px) {

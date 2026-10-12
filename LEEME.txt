@@ -1,0 +1,21 @@
+PORTAL ESTUDIANTIL JAMBELI — GALERÍA AUTOMÁTICA
+
+Archivos:
+- index.html
+- estilo.css
+- contacto.html
+
+La galería consulta el repositorio público:
+https://github.com/kompecc2010-ctrl/portal-estudiantil
+
+Carpetas de fotos:
+- imagenes/actividades/
+- imagenes/eventos/
+- imagenes/deportes/
+- imagenes/graduacion/
+
+Formatos admitidos: JPG, JPEG, PNG, GIF, WEBP, AVIF y BMP.
+
+Para añadir fotos, entra en la carpeta correspondiente de GitHub, selecciona Add file > Upload files y confirma con Commit changes. La página consulta GitHub al abrirla; si acabas de subir fotos y no aparecen inmediatamente, recarga la página.
+
+Importante: las carpetas deben existir en GitHub. GitHub no conserva carpetas vacías; crea cada carpeta subiendo un archivo de imagen o un archivo marcador como .gitkeep. El repositorio debe ser público para que la consulta sin autenticación funcione. La galería conserva las dos fotos existentes en imagenes/ como respaldo para el álbum de actividades si imagenes/actividades/ todavía no contiene fotos.
