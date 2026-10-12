@@ -106,7 +106,7 @@
                         <div class="item-video-carrusel">
                             <div class="contenedor-video-reproductor">
                                 <iframe
-                                    src="https://www.youtube.com/embed/QGdEfeektgw"
+                                    src="https://www.youtube.com/embed/FDJZiBfPdXE"
                                     title="Feria de Ciencias y Tecnología 2026"
                                     loading="lazy"
                                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
@@ -199,7 +199,11 @@
     <p class="subtitulo-bloque">Explora nuestras actividades, proyectos y momentos especiales. Haz clic en una imagen para verla en pantalla completa.</p>
 
     <div class="albumes-galeria">
-        <button type="button" class="tarjeta-album activo" data-album="actividades">
+        <button type="button" class="tarjeta-album activo" data-album="principal">
+            <span class="icono-album">📸</span>
+            <span><strong>Imágenes</strong><small>Fotos subidas directamente</small></span>
+        </button>
+        <button type="button" class="tarjeta-album" data-album="actividades">
             <span class="icono-album">📚</span>
             <span><strong>Actividades Académicas</strong><small>Clases y proyectos estudiantiles</small></span>
         </button>
@@ -380,6 +384,7 @@
             const extensionesImagen = /\.(jpe?g|png|gif|webp|avif|bmp)$/i;
 
             const nombresAlbum = {
+                principal: "Imágenes",
                 actividades: "Actividades Académicas",
                 eventos: "Eventos",
                 deportes: "Deportes",
@@ -387,7 +392,7 @@
             };
 
             const iconoVacio = {
-                actividades: "📚", eventos: "🎉", deportes: "⚽", graduacion: "🎓"
+                principal: "📸", actividades: "📚", eventos: "🎉", deportes: "⚽", graduacion: "🎓"
             };
 
             const albumes = document.querySelectorAll(".tarjeta-album");
@@ -403,7 +408,7 @@
             const visorDescripcion = document.getElementById("visorDescripcion");
             const visorContador = document.getElementById("visorContador");
 
-            let albumActual = "actividades";
+            let albumActual = "principal";
             let fotosVisibles = [];
             let indiceGaleria = 0;
             let indiceVisor = 0;
@@ -440,7 +445,8 @@
             async function cargarAlbum(nombre) {
                 if (cacheAlbumes[nombre]) return cacheAlbumes[nombre];
 
-                const rutaCarpeta = RUTA_BASE + "/" + nombre;
+                // "principal" corresponde directamente a imagenes/ (sin subcarpetas).
+                const rutaCarpeta = nombre === "principal" ? RUTA_BASE : RUTA_BASE + "/" + nombre;
                 let archivos = [];
                 try {
                     archivos = await listarDirectorio(rutaCarpeta);
@@ -456,24 +462,6 @@
                         url: archivo.download_url || urlRaw(archivo.path),
                         titulo: textoBonito(archivo.name)
                     }));
-
-                // Compatibilidad con las dos fotos que ya estaban en imagenes/:
-                // se muestran dentro de Actividades Académicas si aún no hay fotos en esa carpeta.
-                if (nombre === "actividades" && imagenes.length === 0) {
-                    try {
-                        const raiz = await listarDirectorio(RUTA_BASE);
-                        imagenes = raiz
-                            .filter(archivo => archivo.type === "file" && extensionesImagen.test(archivo.name))
-                            .map(archivo => ({
-                                nombre: archivo.name,
-                                ruta: archivo.path,
-                                url: archivo.download_url || urlRaw(archivo.path),
-                                titulo: textoBonito(archivo.name)
-                            }));
-                    } catch (error) {
-                        console.error(error);
-                    }
-                }
 
                 cacheAlbumes[nombre] = imagenes;
                 return imagenes;
@@ -547,7 +535,7 @@
                     mensaje.style.padding = "35px 20px";
                     mensaje.style.textAlign = "center";
                     mensaje.innerHTML = "<h4>Este álbum todavía no tiene fotografías</h4><p>Sube imágenes JPG, PNG o WEBP a la carpeta <strong>imagenes/" +
-                        albumActual + "/</strong> de GitHub. Cuando la página se actualice, aparecerán aquí.</p>";
+                        (albumActual === "principal" ? "" : albumActual + "/") + "</strong> de GitHub. Cuando la página se actualice, aparecerán aquí.</p>";
                     pista.appendChild(mensaje);
                     galeriaContador.textContent = "0 / 0";
                     return;
@@ -613,7 +601,7 @@
                 if (e.key === "ArrowRight") abrirVisor(indiceVisor + 1);
             });
 
-            seleccionarAlbum("actividades");
+            seleccionarAlbum("principal");
 
         });
     </script>
