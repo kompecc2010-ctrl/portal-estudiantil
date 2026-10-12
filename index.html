@@ -95,14 +95,49 @@
                     </div>
                 </section>
 
-                <!-- BLOQUE LATERAL: VIDEO TUTORIAL -->
-                <section class="tarjeta-tablero bloque-lateral">
-                    <h2 class="titulo-bloque">Videos de Actividades</h2>
-                    <div class="contenedor-video">
-                        <iframe src="https://youtube.com/embed/FDJZiBfPdXE" title="tiktok" frameborder="0" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-                    </div>
-                    <p class="pie-video">Escribir nota de qué se trata el video aquí.</p>
-                </section>
+<!-- ==========================================
+   📺 SECCIÓN DE VIDEOS (COMPORTAMIENTO DE CARRUSEL)
+   ========================================== -->
+<section class="tarjeta-tablero seccion-completa">
+    <h2 class="titulo-bloque">Videos de Actividades</h2>
+    <p class="subtitulo-bloque">Desliza para ver los últimos momentos y proyectos de nuestra comunidad estudiantil.</p>
+
+    
+    <!-- Contenedor del carrusel de videos -->
+    <div class="contenedor-carrusel-videos">
+        <div class="carrusel-videos-deslizable">
+            
+            <!-- VIDEO 1: YOUTUBE -->
+            <div class="item-video-carrusel">
+                <div class="contenedor-video-reproductor">
+                    <!-- REEMPLAZA EL ID 'EJEMPLO_ID' POR EL DE TU VIDEO -->
+                    <iframe src="https://youtube.com/embed/FDJZiBfPdXE" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                </div>
+                <div class="info-video-carrusel">
+                    <span class="etiqueta-red youtube"> YouTube</span>
+                    <h4>Feria de Ciencias y Tecnología 2026</h4>
+                    <p>Resumen completo de los proyectos de robótica presentados por bachillerato.</p>
+                </div>
+            </div>
+
+            <!-- VIDEO 2: TIKTOK -->
+            <div class="item-video-carrusel">
+                <div class="contenedor-video-reproductor">
+                    <!-- REEMPLAZA 'ID_TIKTOK' POR EL NÚMERO DE ID DE TU VIDEO -->
+                    <iframe src="https://tiktok.com//embed/v2/7684575726447758613" allowfullscreen scrolling="no" allow="encrypted-media;"></iframe>
+                </div>
+                <div class="info-video-carrusel">
+                    <span class="etiqueta-red tiktok">TikTok</span>
+                    <h4>¡Talento Jambeli en 60 segundos!</h4>
+                    <p>Nuestros estudiantes comparten su experiencia en el taller de desarrollo web.</p>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+                
 
             </div>
 
