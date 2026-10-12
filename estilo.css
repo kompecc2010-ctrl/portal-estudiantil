@@ -1,17 +1,17 @@
 /* ==========================================
-   ⚙️ CONFIGURACIÓN GENERAL Y VARIABLES (AZUL MARINO)
+   ⚙️ CONFIGURACIÓN GENERAL Y VARIABLES
    ========================================== */
 :root {
-    --bg-dashboard: #f8fafc;       /* Fondo gris claro de aplicación */
-    --bg-tarjeta: #ffffff;         /* Blanco puro para los bloques */
-    --primary: #0f172a;            /* Azul Marino Oscuro Elegante (Fondo menú) */
-    --primary-accent: #1e3a8a;     /* Azul Marino Académico para Títulos */
-    --primary-light: #f1f5f9;      /* Gris azulado claro para fondos secundarios */
-    --text-main: #334155;          /* Texto principal */
-    --text-muted: #64748b;         /* Texto secundario y pies de foto */
-    --accent: #10b981;             /* Verde Esmeralda para etiquetas */
-    --danger: #ef4444;             /* Rojo para alertas */
-    --border: #e2e8f0;             /* Líneas divisoras sutiles */
+    --bg-dashboard: #f8fafc;
+    --bg-tarjeta: #ffffff;
+    --primary: #0f172a;
+    --primary-accent: #1e3a8a;
+    --primary-light: #f1f5f9;
+    --text-main: #334155;
+    --text-muted: #64748b;
+    --accent: #10b981;
+    --danger: #ef4444;
+    --border: #e2e8f0;
     --radius-lg: 16px;
     --radius-md: 12px;
     --shadow: 0 4px 6px -1px rgba(15, 23, 42, 0.04), 0 2px 4px -1px rgba(15, 23, 42, 0.02);
@@ -23,6 +23,10 @@
     padding: 0;
 }
 
+html {
+    scroll-behavior: smooth;
+}
+
 body {
     background-color: var(--bg-dashboard);
     color: var(--text-main);
@@ -32,7 +36,7 @@ body {
 }
 
 /* ==========================================
-   🧭 MENÚ LATERAL (SIDEBAR AZUL MARINO)
+   🧭 MENÚ LATERAL
    ========================================== */
 .dashboard-sidebar {
     width: 260px;
@@ -54,11 +58,11 @@ body {
     border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 }
 
-/* Ajustes del logo en imagen */
 .logo-instituto-img {
     width: 40px;
     height: 40px;
     object-fit: contain;
+    border-radius: 8px;
 }
 
 .avatar-instituto {
@@ -104,7 +108,8 @@ body {
     transition: all 0.2s ease;
 }
 
-.sidebar-menu a:hover, .sidebar-menu a.activo {
+.sidebar-menu a:hover,
+.sidebar-menu a.activo {
     background-color: rgba(255, 255, 255, 0.1);
     color: #ffffff;
 }
@@ -128,13 +133,14 @@ body {
 }
 
 /* ==========================================
-   🖼️ SECCIÓN DEL CONTENIDO (LAYOUT)
+   🖼️ CONTENIDO PRINCIPAL
    ========================================== */
 .dashboard-layout {
     margin-left: 260px;
     flex-grow: 1;
+    width: calc(100% - 260px);
+    max-width: 1400px;
     padding: 40px;
-    max-width: 1100px;
 }
 
 .dashboard-header {
@@ -160,6 +166,11 @@ body {
     margin-bottom: 24px;
 }
 
+/* En la página principal, Noticias ocupa todo el ancho */
+.dashboard-contenido > .tablero-grid {
+    grid-template-columns: 1fr;
+}
+
 .tarjeta-tablero {
     background-color: var(--bg-tarjeta);
     border: 1px solid var(--border);
@@ -169,6 +180,7 @@ body {
 }
 
 .seccion-completa {
+    width: 100%;
     margin-bottom: 24px;
 }
 
@@ -188,18 +200,16 @@ body {
 }
 
 /* ==========================================
-   📰 CONFIGURACIÓN DE LOS DOS CARRUSELES (FLUIDOS)
+   📰 CARRUSEL DE NOTICIAS
    ========================================== */
-.contenedor-carrusel, 
-.contenedor-carrusel-fotos {
+.contenedor-carrusel {
     overflow: hidden;
     background-color: #f8fafc;
     border-radius: var(--radius-md);
     border: 1px solid var(--border);
 }
 
-.carrusel-deslizable, 
-.carrusel-fotos-deslizable {
+.carrusel-deslizable {
     display: flex;
     transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
 }
@@ -217,6 +227,7 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    gap: 16px;
     margin-bottom: 8px;
 }
 
@@ -231,10 +242,18 @@ body {
     font-size: 0.7rem;
     font-weight: 600;
     text-transform: uppercase;
+    white-space: nowrap;
 }
 
-.etiqueta-noticia.urgente { background-color: #fee2e2; color: var(--danger); }
-.etiqueta-noticia.nuevo { background-color: #d1fae5; color: var(--accent); }
+.etiqueta-noticia.urgente {
+    background-color: #fee2e2;
+    color: var(--danger);
+}
+
+.etiqueta-noticia.nuevo {
+    background-color: #d1fae5;
+    color: var(--accent);
+}
 
 .fecha-noticia {
     font-size: 0.8rem;
@@ -242,41 +261,142 @@ body {
     margin-bottom: 12px;
 }
 
-/* Carrusel de Fotos Específico */
-.item-foto-carrusel {
+/* ==========================================
+   📺 CARRUSEL DE VIDEOS
+   ========================================== */
+.seccion-videos {
+    margin-top: 24px;
+}
+
+.contenedor-carrusel-videos {
+    overflow: hidden;
+    background-color: #f8fafc;
+    border-radius: var(--radius-md);
+    border: 1px solid var(--border);
+    position: relative;
+}
+
+.carrusel-videos-deslizable {
+    display: flex;
+    transition: transform 0.7s cubic-bezier(0.4, 0, 0.2, 1);
+    will-change: transform;
+}
+
+.item-video-carrusel {
     min-width: 100%;
     display: flex;
     flex-direction: column;
     background-color: #ffffff;
 }
 
-.contenedor-imagen-carrusel {
+.contenedor-video-reproductor {
+    position: relative;
     width: 100%;
-    height: 380px; /* Tamaño ideal y unificado para las fotos */
-    background-color: #e2e8f0;
+    aspect-ratio: 16 / 9;
+    background-color: #000000;
+    overflow: hidden;
 }
 
-.contenedor-imagen-carrusel img {
+.contenedor-video-reproductor iframe {
+    position: absolute;
+    inset: 0;
     width: 100%;
     height: 100%;
-    object-fit: cover;
+    border: 0;
 }
 
-.info-foto-carrusel {
+.contenedor-video-reproductor .tiktok-embed {
+    position: absolute !important;
+    inset: 0 !important;
+    width: 100% !important;
+    height: 100% !important;
+    max-width: none !important;
+    min-width: 0 !important;
+    margin: 0 !important;
+}
+
+.info-video-carrusel {
     padding: 20px;
-    background-color: #ffffff;
     border-top: 1px solid var(--border);
 }
 
-.info-foto-carrusel h4 {
+.info-video-carrusel h4 {
     font-size: 1.1rem;
     color: var(--primary-accent);
     margin-bottom: 4px;
+    font-weight: 600;
 }
 
-.info-foto-carrusel p {
+.info-video-carrusel p {
     font-size: 0.9rem;
     color: var(--text-muted);
+}
+
+.etiqueta-red {
+    display: inline-block;
+    padding: 4px 10px;
+    border-radius: 20px;
+    font-size: 0.7rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    margin-bottom: 8px;
+    color: #ffffff;
+}
+
+.etiqueta-red.youtube {
+    background-color: #ef4444;
+}
+
+.etiqueta-red.tiktok {
+    background-color: #0f172a;
+    border: 1px solid rgba(255,255,255,0.2);
+}
+
+/* Controles del carrusel */
+.controles-carrusel {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    padding-top: 16px;
+}
+
+.boton-carrusel {
+    width: 38px;
+    height: 38px;
+    border: 1px solid var(--border);
+    border-radius: 50%;
+    background-color: #ffffff;
+    color: var(--primary-accent);
+    cursor: pointer;
+    font-size: 1rem;
+    transition: all 0.2s ease;
+}
+
+.boton-carrusel:hover {
+    background-color: var(--primary-accent);
+    color: #ffffff;
+}
+
+.puntos-carrusel {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+}
+
+.punto-carrusel {
+    width: 8px;
+    height: 8px;
+    border: 0;
+    border-radius: 50%;
+    background-color: #cbd5e1;
+    cursor: pointer;
+    padding: 0;
+}
+
+.punto-carrusel.activo {
+    background-color: var(--primary-accent);
+    transform: scale(1.25);
 }
 
 /* ==========================================
@@ -300,11 +420,29 @@ body {
     gap: 16px;
 }
 
-.icono-doc { font-size: 1.6rem; }
-.info-doc { flex-grow: 1; }
-.info-doc strong { display: block; font-size: 0.95rem; color: var(--primary-accent); }
-.info-doc span { font-size: 0.8rem; color: var(--text-muted); }
-.botones-doc { display: flex; gap: 8px; }
+.icono-doc {
+    font-size: 1.6rem;
+}
+
+.info-doc {
+    flex-grow: 1;
+}
+
+.info-doc strong {
+    display: block;
+    font-size: 0.95rem;
+    color: var(--primary-accent);
+}
+
+.info-doc span {
+    font-size: 0.8rem;
+    color: var(--text-muted);
+}
+
+.botones-doc {
+    display: flex;
+    gap: 8px;
+}
 
 .boton-accion {
     text-decoration: none;
@@ -315,13 +453,76 @@ body {
     transition: all 0.2s;
 }
 
-.boton-accion.ver { background-color: #f1f5f9; color: var(--text-main); }
-.boton-accion.ver:hover { background-color: #e2e8f0; }
-.boton-accion.descargar { background-color: var(--primary-accent); color: white; }
-.boton-accion.descargar:hover { background-color: #2563eb; }
+.boton-accion.ver {
+    background-color: #f1f5f9;
+    color: var(--text-main);
+}
+
+.boton-accion.ver:hover {
+    background-color: #e2e8f0;
+}
+
+.boton-accion.descargar {
+    background-color: var(--primary-accent);
+    color: white;
+}
+
+.boton-accion.descargar:hover {
+    background-color: #2563eb;
+}
 
 /* ==========================================
-   📺 SECCIÓN DE VIDEO
+   📸 GALERÍA DE IMÁGENES
+   ========================================== */
+.cuadricula-galeria {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 20px;
+}
+
+.tarjeta-foto {
+    overflow: hidden;
+    background-color: #ffffff;
+    border: 1px solid var(--border);
+    border-radius: var(--radius-md);
+}
+
+.contenedor-imagen {
+    width: 100%;
+    height: 300px;
+    background-color: #e2e8f0;
+    overflow: hidden;
+}
+
+.contenedor-imagen img {
+    width: 100%;
+    height: 100%;
+    display: block;
+    object-fit: cover;
+    transition: transform 0.4s ease;
+}
+
+.tarjeta-foto:hover .contenedor-imagen img {
+    transform: scale(1.03);
+}
+
+.info-foto {
+    padding: 18px 20px;
+}
+
+.info-foto h4 {
+    color: var(--primary-accent);
+    font-size: 1.05rem;
+    margin-bottom: 5px;
+}
+
+.info-foto p {
+    color: var(--text-muted);
+    font-size: 0.9rem;
+}
+
+/* ==========================================
+   📺 SECCIÓN DE VIDEO SIMPLE
    ========================================== */
 .contenedor-video {
     position: relative;
@@ -340,10 +541,14 @@ body {
     left: 0;
 }
 
-.pie-video { font-size: 0.85rem; color: var(--text-muted); text-align: center; }
+.pie-video {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    text-align: center;
+}
 
 /* ==========================================
-   📩 SECCIÓN EXCLUSIVA DE CONTACTO (FORMULARIO)
+   📩 CONTACTO
    ========================================== */
 .formulario-contacto {
     display: flex;
@@ -376,7 +581,6 @@ body {
     transition: all 0.2s ease;
 }
 
-/* Enfoque dinámico usando el color académico */
 .grupo-formulario input:focus,
 .grupo-formulario textarea:focus {
     outline: none;
@@ -385,7 +589,6 @@ body {
     box-shadow: 0 0 0 4px rgba(30, 58, 138, 0.1);
 }
 
-/* Botón estilizado acorde a la barra del menú */
 .boton-enviar {
     background-color: var(--primary-accent);
     color: #ffffff;
@@ -408,82 +611,75 @@ body {
 }
 
 /* ==========================================
-   📱 RESPONSIVE (MÓVILES)
+   📱 RESPONSIVE
    ========================================== */
 @media (max-width: 900px) {
-    .dashboard-sidebar { display: none; }
-    .dashboard-layout { margin-left: 0; padding: 20px; }
-    .tablero-grid { grid-template-columns: 1fr; }
-    .item-documento { flex-direction: column; text-align: center; }
-    .boton-enviar { width: 100%; }
+    .dashboard-sidebar {
+        display: none;
+    }
+
+    .dashboard-layout {
+        margin-left: 0;
+        width: 100%;
+        max-width: none;
+        padding: 20px;
+    }
+
+    .tablero-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .cuadricula-galeria {
+        grid-template-columns: 1fr;
+    }
+
+    .contenedor-imagen {
+        height: 260px;
+    }
+
+    .item-documento {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .botones-doc {
+        width: 100%;
+        justify-content: center;
+    }
+
+    .boton-enviar {
+        width: 100%;
+    }
+
+    .noticia-cabecera {
+        align-items: flex-start;
+        flex-direction: column;
+    }
 }
 
-/* ==========================================
-   📺 CARRUSEL DE VIDEOS RESPONSIVO
-   ========================================== */
-.contenedor-carrusel-videos {
-    overflow: hidden;
-    background-color: #f8fafc;
-    border-radius: var(--radius-md);
-    border: 1px solid var(--border);
-}
+@media (max-width: 600px) {
+    .dashboard-layout {
+        padding: 14px;
+    }
 
-.carrusel-videos-deslizable {
-    display: flex;
-    transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
-}
+    .tarjeta-tablero {
+        padding: 18px;
+    }
 
-.item-video-carrusel {
-    min-width: 100%;
-    display: flex;
-    flex-direction: column;
-    background-color: #ffffff;
-}
+    .header-saludo h1 {
+        font-size: 1.5rem;
+    }
 
-/* Mantiene la proporción 16:9 exacta para que no aparezcan franjas negras */
-.contenedor-video-reproductor {
-    position: relative;
-    padding-bottom: 56.25%; 
-    height: 0;
-    background-color: #000000;
-}
+    .tarjeta-noticia-carrusel {
+        padding: 20px;
+    }
 
-.contenedor-video-reproductor iframe {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    border: 0;
-}
+    .botones-doc {
+        flex-direction: column;
+    }
 
-.info-video-carrusel {
-    padding: 20px;
-    border-top: 1px solid var(--border);
+    .boton-accion {
+        width: 100%;
+        text-align: center;
+    }
 }
-
-.info-video-carrusel h4 {
-    font-size: 1.1rem;
-    color: var(--primary-accent);
-    margin-bottom: 4px;
-    font-weight: 600;
-}
-
-.info-video-carrusel p {
-    font-size: 0.9rem;
-    color: var(--text-muted);
-}
-
-/* Etiquetas de redes sociales */
-.etiqueta-red {
-    display: inline-block;
-    padding: 4px 10px;
-    border-radius: 20px;
-    font-size: 0.7rem;
-    font-weight: 600;
-    text-transform: uppercase;
-    margin-bottom: 8px;
-    color: #ffffff;
-}
-.etiqueta-red.youtube { background-color: #ef4444; }
-.etiqueta-red.tiktok { background-color: #0f172a; border: 1px solid rgba(255,255,255,0.2); }
